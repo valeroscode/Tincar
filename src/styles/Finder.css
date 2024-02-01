@@ -1,0 +1,1596 @@
+body::-webkit-scrollbar-thumb {
+background-color: #ff4c68;
+z-index: 100;
+}
+body::-webkit-scrollbar-track {
+box-shadow: none;
+background-color: white;
+z-index: 100;
+}
+.nav-link {
+font-family: Montserrat;
+width: 100%;
+}
+.nav-link a {
+text-decoration: none;
+color: white;
+}
+body {
+overflow-x: hidden;
+}
+.btn-list {
+background-color: white;
+width: fit-content;
+padding: 2rem;
+box-shadow: 0px 0px 5px black;
+border-radius: 7px;
+}
+.btn-list li {
+display: flex;
+flex-direction: column;
+align-items: center;
+margin: 5px 2px 0 2px;
+}
+.btn-list li div {
+background-color: whitesmoke;
+height: 4rem;
+width: 100%;
+border-radius: 7px;
+}
+.btn-list li p {
+font-size: 0.6rem;
+margin: 0;
+padding: 0;
+position: absolute;
+margin-top: -1rem;
+font-weight: 100;
+color: red;
+}
+.container-fluid {
+position: relative;
+top: 1rem;
+}
+.finder-section {
+height: 65vh;
+display: flex;
+flex-direction: column;
+justify-content: start;
+align-items: center;
+font-family:"Montserrat";
+font-weight: 900;
+position: relative;
+top: 0;
+}
+.finder-section h1 {
+position: relative;
+font-family:"Montserrat";
+font-weight: 700;
+}
+#finder-section-content {
+position: relative;
+top: 4rem;
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+#title {
+height: fit-content;
+padding-bottom: 1rem;
+}
+.navbar {
+height: 1vh;
+display: flex;
+justify-content: center;
+}
+.nav-style {
+flex-direction: row;
+width: 70vw;
+align-items: center;
+}
+.search-btn {
+padding: 0.5rem 2rem;
+border: none;
+border-radius: 7px;
+background-color: white;
+color: black;
+}
+.bottom-specs-section {
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+}
+.bottom-specs-section input {
+width: 10rem;
+margin-bottom: 5rem;
+}
+
+#car-model-data {
+margin-bottom: 10rem;
+background-color: whitesmoke;
+padding: 3rem;
+border-radius: 7px;
+display: none;
+position: relative;
+top: 4rem;
+}
+
+.results-and-ads {
+display: flex;
+justify-content: center;
+margin-bottom: 5rem;
+margin-top: 5rem;
+}
+
+.ads {
+display: flex;
+}
+
+@media screen and (max-width: 1112px) {
+.results-and-ads {
+flex-direction: column;
+width: 100vw;
+align-items: center;
+}
+.ads {
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+width: 70%;
+}
+.results-and-ads .finance-tool-info {
+margin-bottom: 1rem;
+width: 85%;
+}
+}
+
+.results-and-ads .finance-tool-info {
+background-color: whitesmoke;
+padding: 2rem;
+border-radius: 7px;
+}
+
+.results-and-ads div .avaliable {
+background-color: red;
+width: 70%;
+padding: 0 1rem;
+border-bottom-left-radius: 0px 10px;
+border-bottom-right-radius: 10px;
+}
+
+
+.results-and-ads div div p {
+color: white;
+font-family: "Montserrat";
+font-size: 0.8rem;
+}
+
+.results-and-ads div p {
+color: gray;
+}
+
+.user-rating-div {
+display: flex;
+background-color: #013F8E;
+padding: 2rem;
+border-radius: 10px;
+margin-left: 1rem;
+width: 85%;
+}
+
+.user-info-text {
+background-color: #013F8E;
+width: 22rem;
+}
+
+.user-info-text h4 {
+font-size: 1.7rem;
+color: white;
+width: 90%;
+}
+.user-rating-info .user-rating-info-text {
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+border: 5px solid white;
+padding: 1rem;
+border-radius: 10px;
+}
+
+.user-rating-info div div {
+display: flex;
+flex-direction: row;
+}
+
+.user-rating-info-text h6 {
+color: white;
+margin-top: 1rem;
+}
+
+.freeform-ul {
+display: block;
+position: absolute;
+background-color: white;
+overflow-y: scroll;
+padding-top: 1rem;
+padding-bottom: 1rem;
+height: fit-content;
+max-height: 40vh;
+top: 9.9rem;
+border-radius: 0 0 0 10px;
+box-shadow: 0px 8px 10px black;
+}
+
+.freeform-ul li {
+margin-right: 1rem;
+display: flex;
+flex-direction: row;
+
+}
+
+.freeform-ul li input {
+margin-right: 0.5rem;
+position: relative;
+}
+
+.btn-list li button p {
+background-color: #ff4c68;
+border-radius: 100%;
+padding: 3px 5px;
+color: white;
+position: relative;
+display: none;
+bottom: 0.1rem;
+left: 0.2rem;
+pointer-events: none;
+}
+
+.btn-list li button svg {
+pointer-events: none;
+}
+
+.btn-light {
+color: gray;
+}
+
+#lottie div {
+height: 10rem;
+}
+
+#lottie {
+display: none;
+}
+
+#lottie p {
+text-align: center;
+font-family: "Montserrat";
+margin: 0;
+position: relative;
+bottom: 3rem;
+}
+
+#filtered-car-data  {
+display: grid;
+grid-template-columns: auto auto;
+margin: 0 3rem 0 3rem;
+max-height: 110vh;
+overflow-y: scroll;
+}
+
+#filtered-car-data .parent-div {
+background-color: white;
+padding: 1.5rem;
+border-radius: 10px;
+box-shadow: 0px 0px 5px gray;
+width: 95%;
+margin: 1rem;
+padding-bottom: 2.2rem;
+}
+
+
+#filtered-car-data div h2 {
+font-weight: 700;
+font-size: 1.4rem;
+}
+
+#filtered-car-data div h2 a svg {
+height: 3.5rem;
+position: relative;
+fill: #ff4c68;
+}
+
+#filtered-car-data div h2 a a {
+font-size: 1rem;
+color: white;
+position: absolute;
+margin-top: 1rem;
+margin-left: -3rem;
+font-family: Montserrat;
+}
+
+#filtered-car-data div h5 {
+color: gray;
+}
+#filtered-car-data div h5 div {
+display: inline;
+}
+#filtered-car-data div h5 div svg {
+display: inline;
+fill: #ff4c68;
+height: 3.5rem;
+}
+
+#filtered-car-data div h5 div p {
+color: white;
+position: relative;
+display: inline;
+right: 3.2rem;
+}
+
+.vehicle-details {
+display: flex;
+height: fit-content;
+z-index: 10;
+position: relative;
+top: -0.5rem;
+right: 0.5rem;
+}
+
+.vehicle-details p {
+background-color: whitesmoke;
+margin: 0.2rem;
+height: fit-content;
+padding: 0.5rem;
+color: black;
+font-weight: 600;
+border-radius: 100px;
+}
+
+.vehicle-details div {
+position: relative;
+right: 1rem;
+bottom: 2rem;
+}
+
+.vehicle-details div svg {
+position: absolute;
+z-index: 90;
+left: -0.5rem;
+height: 1.5rem;
+}
+
+.vehicle-details div div h5 {
+margin: 0;
+}
+
+#filtered-car-data div .market-value {
+z-index: 14;
+}
+
+#filtered-car-data div .market-value p {
+position: relative;
+}
+
+#filtered-car-data div .market-value div {
+display: flex;
+background-color: white;
+}
+
+#filtered-car-data div .market-value div p {
+display: flex;
+flex-direction: column;
+align-items: center;
+font-family:"Montserrat";
+font-weight: 700;
+}
+
+.finance-calc-text {
+font-family: Montserrat;
+font-weight: 600;
+}
+
+#filtered-car-data div .market-value div p div {
+position: relative;
+}
+
+.flex {
+display: flex;
+flex-direction: column;
+margin-left: 0.5rem;
+margin-right: 0.5rem;
+}
+
+.flex input {
+height: 1.5rem;
+background-color: lightgray;
+border: none;
+border-radius: 7px;
+}
+
+.flex select {
+height: 1.5rem;
+background-color: lightgray;
+border: none;
+border-radius: 7px;
+}
+
+.outerCon {
+display:flex;
+flex-direction: column;
+}
+
+.getPayment-btn {
+width: fit-content;
+background-color: #013F8E;
+border: 2px solid #013F8E;
+color: white;
+font-weight: 500;
+}
+
+.monthlyPayment {
+color: black;
+}
+
+.btn-result {
+position: relative;
+top: 1rem;
+}
+
+.btn-result h5 {
+position: relative;
+top: 0.5rem;
+left: 1rem;
+}
+
+.container-top {
+display: flex;
+justify-content: space-between;
+z-index: 2;
+}
+
+.engine-stats {
+margin: 0;
+position: relative;
+bottom: 2.5rem;
+font-size: 1rem;
+font-weight: 700;
+color: gray;
+}
+
+.cost {
+position: relative;
+}
+
+.mpg {
+position: relative;
+left: 2rem;
+top: 0rem;
+}
+
+.mpg h4 {
+font-size: 2.8rem;
+width: 8rem;
+font-family: Montserrat;
+font-weight: 700;
+}
+
+.mpg a {
+position: absolute;
+top: 0.3rem;
+left: 3.5rem;
+font-family: Montserrat;
+font-weight: 700;
+}
+
+.results-text {
+font-family: Montserrat;
+font-weight: 800;
+color: black;
+text-align: center;
+margin-top: 2.5rem;
+margin-bottom: 2rem;
+}
+
+.filters-list {
+display: flex;
+justify-content: center;
+}
+
+.filters {
+background-color: #ff4c68;
+width: fit-content;
+height: fit-content;
+padding: 0.5rem;
+border-radius: 100px;
+color: white;
+font-family: Montserrat;
+font-weight: 700;
+margin: 0 0.5rem 1rem 0.5rem;
+}
+
+.save-car {
+position: absolute;
+right: -0.5rem;
+color: white;
+width: 7rem;
+font-family: Montserrat;
+font-weight: 500;
+background-color: #ff4c68;
+border: 2px solid #ff4c68;
+}
+
+.save-car:hover {
+background-color: #FF2547;
+border: 2px solid #FF2547;
+}
+
+#marketVal {
+position: relative;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+}
+
+.estVal {
+position: relative;
+font-size: 0.7rem;
+font-family: Montserrat;
+color: gray;
+bottom: 0.5rem;
+}
+
+.small-lottie {
+height: 2rem;
+} 
+
+#saved-cars-container {
+position: fixed;
+height: 100vh;
+width: 20vw;
+z-index: 101;
+background-color: white;
+display: flex;
+flex-direction: column;
+align-items: start;
+-webkit-transition: all 0.5s ease;
+-moz-transition: all 0.5s ease;
+-o-transition: all 0.5s ease;
+transition: all 0.5s ease;
+right: -20vw;
+top: 0;
+padding-left: 1rem;
+list-style-type: none;
+box-shadow: 2px 1px 10px gray;
+}
+
+#saved-cars-container h3 {
+top: 1rem;
+left: 1rem;
+font-size: 1.5rem;
+display: flex;
+-webkit-transition: all 0.5s ease;
+-moz-transition: all 0.5s ease;
+-o-transition: all 0.5s ease;
+transition: all 0.5s ease;
+}
+
+#saved-cars-container hr {
+height: 0.05rem;
+left: 5%;
+width: 87%;
+background-color: gray;
+margin-bottom: 0;
+-webkit-transition: all 0.5s ease;
+-moz-transition: all 0.5s ease;
+-o-transition: all 0.5s ease;
+transition: all 0.5s ease;
+}
+
+#cars-list {
+width: 100%;
+}
+
+.saved-car {
+padding: 1.2rem;
+list-style-type: none;
+-webkit-transition: all 0.3s ease;
+-moz-transition: all 0.3s ease;
+-o-transition: all 0.3s ease;
+transition: all 0.3s ease;
+}
+
+.saved-car:hover {
+background-color: whitesmoke;
+}
+
+.saved-car h4 {
+color: black;
+font-size: 1.2rem;
+}
+
+.saved-car h5 {
+color: black;
+}
+
+.saved-car p {
+margin-top: 0;
+font-weight: 600;
+}
+
+.saved-car .vehicle-details {
+font-size: 0.8rem;
+}
+
+.remove-btn {
+color: white;
+font-weight: 600;
+}
+
+.sorry p {
+display: inline;
+font-family: Montserrat;
+background-color: gray;
+color: white;
+padding: 0.5rem;
+margin-left: 0.5rem;
+border-radius: 100px;
+}
+
+.sorry {
+display: none;
+flex-direction: column;
+text-align: center;
+}
+
+.sorry h1 {
+color: #ff4c68;
+font-size: 1.8rem;
+text-align: center;
+margin-top: 3rem;
+-webkit-transition: opacity 0.3s ease;
+-moz-transition: opacity 0.3s ease;
+-o-transition: opacity 0.3s ease;
+transition: opacity 0.3s ease;
+}
+
+.models-text {
+font-family: Montserrat;
+font-weight: 600;
+color: black;
+font-size: 1.5rem;
+text-align: left;
+margin: 2.5rem 0 2rem 0;
+}
+
+.models-container {
+display: flex;
+justify-content: center;
+margin-bottom: 7rem;
+}
+
+.models-container div {
+border: 1px solid lightgray;
+border-radius: 10px;
+}
+
+.models-container div span {
+font-family: Montserrat;
+font-weight: 700;
+text-align: center;
+border: none;
+border-radius: 0 0 10px 10px;
+position: absolute;
+top: 4rem;
+left: 0;
+height: 81%;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+width: 100%;
+background-color: rgba(0,0,0,0.5);
+color: white;
+opacity: 0;
+-webkit-transition: all 0.2s ease;
+-moz-transition: all 0.2s ease;
+-o-transition: all 0.2s ease;
+transition: all 0.2s ease;
+z-index: 7;
+}
+
+.models-container div:hover span {
+opacity: 1;
+}
+
+.models-container div span button {
+width: fit-content;
+background-color: #FF4C68;
+border: none;
+color: white;
+padding: 0.3rem 1.5rem;
+border-radius: 7px;
+margin-top: 1rem;
+}
+
+.models-container div span p {
+margin: 0;
+}
+
+.models-container div h4 {
+position: relative;
+font-family: Montserrat;
+font-weight: 600;
+color: black;
+font-size: 1.2rem;
+padding: 1rem;
+z-index: 11;
+}
+
+.models-you-may-like {
+position: relative;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+margin-top: 5rem;
+margin-bottom: 10rem;
+margin-left: 2rem;
+margin-right: 2rem;
+}
+
+.models-you-may-like div {
+margin: 0 1rem 0 1rem;
+position: relative;
+z-index: 10;
+}
+
+.models-you-may-like div img {
+height: 17rem;
+border-radius: 0 0 10px 10px;
+}
+
+.line {
+height: 0.7rem;
+position: absolute;
+background-color: #FF4C68;
+width: 15rem;
+border: none;
+top: 1.4rem;
+left: 1.1rem;
+border-radius: 0px;
+opacity: 0.3;
+z-index: 9;
+}
+
+.big-line-1 {
+background-color: #FF4C68;
+width: 75vw;
+position: absolute;
+height: 2rem;
+bottom: 5rem;
+z-index: 7;
+opacity: 0.5;
+}
+
+.big-line-2 {
+background-color: #FF4C68;
+width: 78vw;
+position: absolute;
+height: 2rem;
+bottom: 9rem;
+z-index: 7;opacity: 0.5;
+}
+
+.trending {
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+margin: 6rem 2rem 6rem 2rem;
+}
+
+.trending div h4 {
+cursor: pointer;
+-webkit-transition: all 0.2s ease;
+-moz-transition: all 0.2s ease;
+-o-transition: all 0.2s ease;
+transition: all 0.2s ease;
+}
+
+.trending div h4:hover {
+background-color: whitesmoke;
+}
+
+.trending div h4 img {
+height: 1.2rem;
+}
+
+.trending div {
+display: grid;
+grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.trending h1 {
+font-family: Montserrat;
+font-weight: 600;
+color: black;
+font-size: 1.5rem;
+}
+
+.trending div h4 {
+font-family: Montserrat;
+font-weight: 400;
+color: black;
+font-size: 1.1rem;
+padding: 0.7rem;
+border: 1px solid lightgray;
+text-align: center;
+margin: 0.5rem;
+border-radius: 7px;
+}
+
+.supp-brands {
+color: black;
+text-align: center;
+font-size: 1.8rem;
+font-family:"Montserrat";
+font-weight: 700;
+}
+
+.brands {
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: start;
+margin-top: 5rem;
+margin-bottom: 5rem;
+margin-left: 17rem;
+margin-right: 15rem;
+}
+
+.brands h1 {
+color: black;
+font-family:"Montserrat";
+font-weight: 700;
+font-size: 1.5rem;
+}
+
+.brands div {
+display: flex;
+flex-direction: row;
+}
+
+.brands div img {
+height: 6rem;
+margin: 1rem;
+}
+
+.brands[data-animated="true"] {
+  overflow: hidden;
+  -webkit-mask: linear-gradient(
+    90deg,
+    transparent,
+    white 20%,
+    white 80%,
+    transparent
+  );
+  mask: linear-gradient(90deg, transparent, white 20%, white 80%, transparent);
+}
+
+.brands[data-animated=true] .scroller {
+  width: max-content;
+  flex-wrap: nowrap;
+  animation: scroll var(--_animation-duration, 40s)
+  var(--_animation-direction, forwards) linear infinite;
+}
+
+.brands[data-direction="right"] {
+  --_animation-direction: reverse;
+}
+
+.brands[data-direction="left"] {
+  --_animation-direction: forwards;
+}
+
+.brands[data-speed="fast"] {
+  --_animation-duration: 20s;
+}
+
+.brands[data-speed="slow"] {
+  --_animation-duration: 90s;
+}
+
+@keyframes scroll {
+  to {
+    transform: translate(calc(-50%));
+  }
+}
+
+.buy-with-confidence {
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+}
+
+.buy-with-confidence h1 {
+font-family:"Montserrat";
+font-weight: 600;
+color: black;
+font-size: 1.5rem;
+padding: 0.7rem;
+}
+
+.buy-with-confidence div {
+display: flex;
+flex-direction: row;
+justify-content: center;
+}
+
+.buy-with-confidence div span {
+display: flex;
+flex-direction: column;
+max-width: 21%;
+padding: 1rem;
+margin: 0.5rem;
+}
+
+.buy-with-confidence div span h4 {
+font-size: 1.1rem;
+font-family:"Montserrat";
+font-weight: 700;
+margin-top: 1.2rem;
+}
+
+.buy-with-confidence div span p {
+position: relative;
+color: black;
+}
+
+.buy-with-confidence div span b {
+color: gray;
+font-weight: 400;
+font-size: 0.6rem;
+margin-top: 0.8rem;
+margin-bottom: 0;
+}
+
+.buy-with-confidence div span img {
+height: 17rem;
+border-radius: 4px;
+object-fit: cover;
+}
+
+.hr-before-models {
+width: 50vw;
+}
+
+.clickable-picks {
+display: flex;
+flex-direction: column;
+align-items: center;
+margin-top: 2rem;
+}
+
+.clickable-picks .clickable-ads {
+display: flex;
+justify-content: center;
+}
+
+.clickable-picks .clickable-ads h4 {
+margin-left: 4rem;
+margin-right: 4rem;
+font-size: 1rem;
+font-family: Montserrat;
+font-weight: 200;
+width: 10rem;
+padding: 0.5rem;
+text-align: center;
+}
+
+.clickable-picks .clickable-ads h4:hover {
+color: #ff4c68;
+cursor: pointer;
+-webkit-transition: all 0.2s ease;
+-moz-transition: all 0.2s ease;
+-o-transition: all 0.2s ease;
+transition: all 0.2s ease;
+}
+
+.ad-container {
+position: relative;
+margin-left: 1.5rem;
+}
+
+.ad-container img {
+z-index: 6;
+position: relative;
+bottom: 0;
+border-radius: 10px;
+max-width: 70rem;
+min-width: 70rem;
+}
+
+.ad-info {
+position: absolute;
+top: 8rem;
+z-index: 11;
+background-color: rgba(255, 76, 104, 0.6);
+color: white;
+padding: 1.5rem;
+border-radius: 0 7px 7px 0;
+width: 25rem;
+}
+
+.ad-info h4 {
+font-family: "Montserrat";
+opacity: 1;
+}
+
+.ad-info h6 {
+border: 1px solid white;
+width: fit-content;
+padding: 0.3rem;
+border-radius: 3px;
+position: absolute;
+top: 0.2rem;
+right: 0.2rem;
+opacity: 1;
+font-size: 0.6rem;
+}
+
+.ad-info p {
+opacity: 1;
+width: 20rem;
+margin: 0;
+}
+
+.ad-info hr {
+height: 0.15rem;
+color: white;
+opacity: 1;
+width: 7rem;
+}
+
+.ad-info button {
+border: 1px solid white;
+background-color: white;
+color: black;
+font-family: "Montserrat";
+padding: 0.5rem;
+border-radius: 7px;
+margin-top: 1rem;
+}
+
+.news-widget {
+margin-left: 16rem;
+margin-right: 16rem;
+}
+
+.news-widget h1 {
+color: black;
+font-family:"Montserrat";
+font-weight: 600;
+font-size: 2rem;
+}
+
+.news-widget .news-widget-grid {
+    display: grid;
+    grid-template-rows: repeat(2,1fr);
+    grid-template-columns: 5fr 3fr 4fr;
+    grid-gap: 16px;
+    height: 460px;
+}
+
+.news-widget-grid div {
+    grid-column: 1/2;
+    grid-row: 1/3;
+}
+
+.news-widget-card img {
+object-fit: contain;
+}
+
+.news-widget-card {
+position: relative;
+background-color: white;
+overflow: hidden;
+border-radius: 10px;
+
+}
+
+.news-widget-card img {
+-webkit-transition: all 0.3s ease;
+-moz-transition: all 0.3s ease;
+-o-transition: all 0.3s ease;
+transition: all 0.3s ease;
+height: fit-content;
+width: 100%;
+}
+
+.news-widget-card:hover img {
+transform: scale(1.25);
+}
+
+.news-widget-card h3 {
+position: absolute;
+color: white;
+font-size: 1rem;
+z-index: 100;
+bottom: 0;
+left: 1rem;
+font-family:"Montserrat";
+font-weight: 600;
+width: 90%;
+}
+
+.news-widget .news-widget-grid .news-widget-card:first-of-type {
+    grid-column: 1/2;
+    grid-row: 1/3;
+}
+
+.news-widget .news-widget-grid .news-widget-card:first-of-type img {
+width: 190%
+}
+
+.news-widget .news-widget-grid .news-widget-card:nth-of-type(2) {
+    grid-column: 2/3;
+    grid-row: 1/2;
+}
+
+.news-widget .news-widget-grid .news-widget-card:nth-of-type(2) img {
+width: 120%
+}
+
+.news-widget .news-widget-grid .news-widget-card:nth-of-type(3) {
+    grid-column: 3/4;
+    grid-row: 1/2;
+}
+
+.news-widget .news-widget-grid .news-widget-card:nth-of-type(4) {
+    grid-column: 2/4;
+    grid-row: 2/3;
+}
+
+.news-widget .news-widget-grid .news-widget-card:nth-of-type(4) img {
+width: 105%;
+height: 148%;
+}
+
+.active-find {
+color: #ff4c68;
+border-bottom: 5px solid #ff4c68;
+}
+
+#footer {
+background-color: whitesmoke;
+margin-top: 14rem;
+}
+
+.footer-top {
+display: flex;
+justify-content: space-between;
+margin: 0 20vw 0 20vw;
+}
+
+.footer-ads {
+display: flex;
+flex-direction: column;
+align-items: start;
+}
+
+.footer-ads p {
+font-family: "Montserrat";
+font-weight: 800;
+margin-top: 0.5rem;
+}
+
+.footer-business-logos svg {
+margin: 0 0.5rem 0 0;
+width: 1.1rem;
+height: 1.1rem;
+}
+
+.download-on {
+display: flex;
+}
+
+.download-on img {
+height: 2rem;
+}
+
+.download-on img:first-of-type {
+margin-right: 0.5rem;
+}
+
+.footer-top .join h3 {
+font-family: "Montserrat";
+font-weight: 800;
+font-size: 2rem;
+text-align: left;
+margin: 0;
+}
+
+.footer-top .join p {
+font-family: "Montserrat";
+text-align: left;
+margin-top: 1rem;
+}
+
+.sm-links {
+display: flex;
+flex-direction: row;
+width: 70%;
+flex-wrap: wrap;
+}
+
+.sm-links p {
+margin-right: 1.5rem;
+font-size: 0.8rem;
+}
+
+.privacy-notice {
+margin-left: 20vw;
+margin-right: 20vw;
+margin-top: 1rem;
+font-size: 0.8rem;
+}
+
+@media screen and (max-width: 1669px) {
+.news-widget {
+margin-left: 6rem;
+margin-right: 6rem;
+}
+}
+
+@media screen and (max-width: 1654px) {
+.brands {
+width: 80vw;
+margin-left: 5rem;
+}
+.news-widget-card img {
+transform: scale(1.5);
+} 
+.news-widget-card:hover img {
+transform: scale(1.7);
+}
+}
+
+@media screen and (max-width: 1368px) {
+.models-you-may-like div img {
+height: 14rem;
+}
+.news-widget {
+margin-left: 4rem;
+margin-right: 4rem;
+}
+}
+
+@media screen and (max-width: 1236px) {
+.news-widget-card img {
+transform: scale(1.8);
+} 
+.news-widget-card:hover img {
+transform: scale(1.9);
+}
+}
+
+@media screen and (max-width: 1136px) {
+.models-you-may-like div img {
+height: 12rem;
+}
+.news-widget-card img {
+transform: scale(2.4);
+}
+.news-widget-card:hover img {
+transform: scale(2.5);
+}
+}
+
+@media screen and (max-width: 1178px) {
+.ad-container img {
+max-width: 60rem;
+min-width: 60rem;
+}
+.clickable-picks .content {
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+.clickable-ads {
+width: 90vw;
+}
+}
+
+@media screen and (max-width: 1031px) {
+.ad-container img {
+max-width: 90vw;
+min-width: 90vw;
+}
+.ad-info h4 {
+font-size: 1.1rem;
+}
+.ad-info {
+width: 50vw;
+}
+.ad-info p {
+font-size: 0.9rem;
+}
+.ad-info p {
+width: 40vw;
+}
+.ad-info button {
+font-size: 0.7rem;
+}
+}
+
+@media screen and (max-width: 991px) {
+.navbar {
+display: flex;
+flex-direction: row;
+position: relative;
+top: -1rem;
+justify-content: start;
+}
+.navbar-nav {
+flex-direction: row;
+width: fit-content;
+align-items: center;
+margin-left: 2rem;
+}
+}
+
+
+@media screen and (max-width: 987px) {
+.models-container {
+display: block;
+}
+.models-container div {
+margin-bottom: 2rem;
+}
+.models-you-may-like div img {
+height: 17rem;
+min-width: 28rem;
+}
+.big-line-1 {
+display: none;
+}
+.big-line-2 {
+display: none;
+}
+}
+
+@media screen and (max-width: 948px) {
+.news-widget .news-widget-grid .news-widget-card:nth-of-type(3) img {
+transform: scale(2.5);
+}
+.news-widget-card:nth-of-type(3):hover img {
+transform: scale(2.6);
+}
+.news-widget .news-widget-grid .news-widget-card:nth-of-type(2) img {
+transform: scale(3);
+}
+.news-widget-card:nth-of-type(2):hover img {
+transform: scale(3.1);
+}
+.buy-with-confidence div {
+flex-direction: column;
+align-items: center;
+}
+.buy-with-confidence div span {
+max-width: 55%;
+}
+.buy-with-confidence h1 {
+text-align: center;
+}
+}
+
+@media screen and (max-width: 851px) {
+.news-widget .news-widget-grid .news-widget-card:nth-of-type(3) img {
+transform: scale(1);
+position: relative;
+bottom: 3rem;
+}
+.news-widget-card:nth-of-type(3):hover img {
+transform: scale(2);
+}
+.news-widget .news-widget-grid .news-widget-card:nth-of-type(2) img {
+transform: scale(1);
+position: relative;
+bottom: 3rem;
+}
+.news-widget-card:nth-of-type(2):hover img {
+transform: scale(4.1);
+}
+.news-widget .news-widget-grid .news-widget-card:nth-of-type(1) img {
+transform: scale(2);
+}
+.news-widget-card:nth-of-type(1):hover img {
+transform: scale(3.6);
+}
+.buy-with-confidence div span {
+max-width: 60%;
+}
+}
+
+@media screen and (max-width: 767px) {
+.clickable-picks .clickable-ads h4 {
+margin-left: 0.5rem;
+margin-right: 0.5rem;
+}
+.results-and-ads .finance-tool-info {
+width: 120%;
+}
+.user-rating-div {
+width: 120%;
+}
+}
+
+@media screen and (max-width: 735px) {
+.footer-top {
+flex-direction: column;
+}
+}
+
+@media screen and (max-width: 753px) {
+.navbar-nav {
+margin-left: 0;
+}
+}
+
+@media screen and (max-width: 707px) {
+.navbar {
+height: 7vh;
+}
+.navbar-nav {
+margin-top: -1.3rem;
+} 
+}
+
+@media screen and (max-width: 727px) {
+.news-widget .news-widget-grid .news-widget-card:first-of-type {
+grid-column: 1/4;
+grid-row: 3/4;
+}
+.news-widget .news-widget-grid .news-widget-card:nth-of-type(2) {
+grid-column: 1/4;
+grid-row: 4/5;
+}
+.news-widget .news-widget-grid .news-widget-card:nth-of-type(3) {
+grid-column: 1/4;
+grid-row: 5/6;
+}
+.news-widget .news-widget-grid .news-widget-card:nth-of-type(4) {
+grid-column: 1/4;
+grid-row: 6/7;
+}
+.news-widget-card h3 {
+font-size: 0.9rem;
+}
+.news-widget {
+margin-left: 1rem;
+margin-right: 1rem;
+}
+.trending {
+margin: 6rem 1rem 6rem 1rem;
+}
+.trending div {
+grid-template-columns: repeat(3, 1fr);
+}
+.trending div h4 {
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+font-size: 0.85rem;
+}
+.buy-with-confidence div span {
+max-width: 70%;
+}
+}
+
+@media screen and (max-width: 598px) {
+.ad-info {
+width: 90vw;
+bottom: 0;
+border-radius: 10px;
+height: 100%;
+top: 0;
+}
+.clickable-picks .clickable-ads h4 {
+font-size: 0.9rem;
+}
+}
+
+@media screen and (max-width: 577px) {
+.spec-inputs {
+display: grid;
+grid-template-rows: 1fr;
+grid-template-columns: repeat(4,1fr);
+}
+.spec-categories {
+display: grid;
+grid-template-columns: repeat(4,1fr);
+grid-template-rows: 1fr;
+}
+.jumbotron div h1 {
+font-size: 2rem;
+}
+.buy-with-confidence div span {
+max-width: 75%;
+}
+}
+
+@media screen and (max-width: 492px) {
+.models-you-may-like div img {
+height: 12rem;
+min-width: 20rem;
+}
+.buy-with-confidence div span {
+max-width: 80%;
+}
+.browsing-btn {
+font-size: 0.9rem;
+width: 70%;
+}
+.brands {
+  margin-left: 3rem;
+}
+.brands[data-animated="true"] {
+  mask: none;
+  overflow: visible;
+}
+#saved-cars-container {
+  right: -80vw;
+  width: 70vw;
+}
+.models-container div span {
+  height: 75%;
+}
+.freeform-ul {
+  top: 7.5rem;
+}
+#filtered-car-data {
+  margin: 0 0.5rem;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+#filtered-car-data div h2 {
+  font-size: 1em;
+}
+.vehicle-details p {
+  font-size: 0.9rem;
+}
+#filtered-car-data div .market-value div {
+  flex-direction: column;
+}
+.finance-calc-text {
+  text-align: center;
+} 
+}
+
+@media screen and (max-width: 405px) {
+.user-info-text h4 {
+font-size: 1.2rem;
+}
+}
+
+@media screen and (max-width: 357px) {
+.models-you-may-like div img {
+height: 11rem;
+min-width: 18rem;
+}
+.buy-with-confidence div span {
+max-width: 70%;
+}
+}
+
+
+
+
+
+
