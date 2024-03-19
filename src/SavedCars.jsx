@@ -33,7 +33,25 @@ function SavedCars() {
       getCars();
     }
 
+      document.body.addEventListener('click', (e) => {
+        hideSavedCars(e)
+      })
+ 
+
     }, [])
+
+    function hideSavedCars(e) {
+      const sideBar = document.getElementById('saved-cars-container');
+      if (e.target !== sideBar && !e.target.closest('#saved-cars-container') &&
+       e.target.classList.contains('nav-link') == false &&
+       (sideBar.style.right !== '-30vw' || sideBar.style.right !== '-80vw')) {
+        if (window.innerWidth <= 440) {
+          sideBar.style.right = '-100vw';
+        } else {
+        sideBar.style.right = '-30vw';
+      } 
+    }
+  }
 
     function showSideBar() {
         document.getElementById('saved-cars-container').style.right = '0vw';
@@ -42,6 +60,7 @@ function SavedCars() {
     function removeCar(e) {
     const carData = document.getElementsByClassName('parent-div')
     const model = document.getElementsByClassName('model')
+    if (document.getElementById('filtered-car-data').style.display !== 'none') {
     if (e.target.textContent === 'Remove') {
         for (let i = 0; i < carData.length; i++) {
         if (carData[i].firstElementChild.firstElementChild.textContent === e.target.closest('.saved-car').childNodes[0].childNodes[0].textContent) {
@@ -49,12 +68,14 @@ function SavedCars() {
         carData[i].childNodes[4].childNodes[1].childNodes[1].childNodes[2].style.backgroundColor = '#ff4c68'
         }
         }
+        
         for (let i = 0; i < model.length; i++) {
         if (model[i].firstElementChild.textContent === e.target.closest('.saved-car').childNodes[0].childNodes[0].textContent) {
         model[i].childNodes[3].childNodes[2].innerHTML = 'Save'
         model[i].childNodes[3].childNodes[2].style.backgroundColor = '#ff4c68'
         }
         }
+      }
         e.target.closest('.saved-car').remove()
 
         fetch(`http://localhost:3000/auth/removeCar`, {
@@ -91,7 +112,7 @@ function SavedCars() {
     Saved Cars
     </a>
     <div id='saved-cars-container'>
-       <h3 ref={h3} className='fw-bold position-relative align-items-center'><FontAwesomeIcon icon={faFireFlameCurved} className='p-2 position-relative' style={{color: "#ff4c68",}} /> Saved Cars</h3>
+       <h3 ref={h3} className='fw-bold position-relative align-items-center'><FontAwesomeIcon icon={faFireFlameCurved} className='p-2 position-relative' style={{color: "#ff4c68", marginRight: '0.5rem'}} /> Saved Cars</h3>
         <hr ref={hr} className='position-relative' />
         <ul onClick={(e) => removeCar(e)} ref={carsList} id='cars-list' className='list-group list-group-flush'>
         {

@@ -7,17 +7,62 @@ box-shadow: none;
 background-color: white;
 z-index: 100;
 }
-.nav-link {
-font-family: Montserrat;
-width: 100%;
-}
-.nav-link a {
-text-decoration: none;
-color: white;
-}
 body {
 overflow-x: hidden;
 }
+
+#nav-links {
+  display: flex;
+  z-index: 1000;
+}
+
+#navigation-toggle {
+  position: absolute;
+  right: 0;
+  pointer-events: all;
+}
+
+#navigation {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  font-family: "ubuntu";
+  padding: 1rem;
+}
+
+#navigation h1 {
+  color: black;
+  font-weight: 600;
+  font-size: 2rem;
+  margin-top: 0.2rem;
+  margin-left: 0.5rem;
+  font-family: "ubuntu";
+
+}
+
+#navigation svg {
+  height: 2rem;
+  margin-right: 3rem;
+  margin-left: 0.5rem;
+}
+
+
+#navigation .p {
+  margin: 0 1rem;
+  font-weight: 800;
+  margin-left: 0;
+  
+}
+
+#navigation a {
+  text-decoration: none;
+  color: #FF4C68;
+}
+
+#navigation a:visited {
+text-decoration: none;
+}
+
 .btn-list {
 background-color: white;
 width: fit-content;
@@ -29,7 +74,8 @@ border-radius: 7px;
 display: flex;
 flex-direction: column;
 align-items: center;
-margin: 5px 2px 0 2px;
+margin: 5px 2px 10px 2px;
+position: relative;
 }
 .btn-list li div {
 background-color: whitesmoke;
@@ -40,18 +86,15 @@ border-radius: 7px;
 .btn-list li p {
 font-size: 0.6rem;
 margin: 0;
+left: 0rem;
 padding: 0;
 position: absolute;
 margin-top: -1rem;
 font-weight: 100;
 color: red;
 }
-.container-fluid {
-position: relative;
-top: 1rem;
-}
 .finder-section {
-height: 65vh;
+height: 45vh;
 display: flex;
 flex-direction: column;
 justify-content: start;
@@ -60,6 +103,18 @@ font-family:"Montserrat";
 font-weight: 900;
 position: relative;
 top: 0;
+background-size: 100%;
+background-position: 50% 50%;
+}
+#cq-show-data {
+  background-color: #FF4C68;
+  border: none;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  -webkit-transition: all 0.5s ease;
+-moz-transition: all 0.5s ease;
+-o-transition: all 0.5s ease;
+transition: all 0.5s ease;
 }
 .finder-section h1 {
 position: relative;
@@ -67,32 +122,19 @@ font-family:"Montserrat";
 font-weight: 700;
 }
 #finder-section-content {
-position: relative;
 top: 4rem;
+position: relative;
 display: flex;
 flex-direction: column;
-align-items: center;
-}
-#title {
-height: fit-content;
-padding-bottom: 1rem;
-}
-.navbar {
-height: 1vh;
-display: flex;
-justify-content: center;
-}
-.nav-style {
-flex-direction: row;
-width: 70vw;
 align-items: center;
 }
 .search-btn {
 padding: 0.5rem 2rem;
 border: none;
 border-radius: 7px;
-background-color: white;
-color: black;
+background-color: #FF4C68;
+color: white;
+font-weight: 600;
 }
 .bottom-specs-section {
 display: flex;
@@ -109,10 +151,14 @@ margin-bottom: 5rem;
 margin-bottom: 10rem;
 background-color: whitesmoke;
 padding: 3rem;
-border-radius: 7px;
+border-radius: 0px;
 display: none;
-position: relative;
-top: 4rem;
+position: fixed;
+top: 0rem;
+left: 0;
+height: 100vh;
+overflow-x: scroll;
+z-index: 1000;
 }
 
 .results-and-ads {
@@ -124,6 +170,30 @@ margin-top: 5rem;
 
 .ads {
 display: flex;
+justify-content: center;
+align-items: center;
+}
+
+.finance-tool-info {
+  display: flex;
+  flex-direction: column;
+  border-radius: 15px;
+}
+
+.user-rating-div {
+  display: flex;
+  background-color: #013F8E;
+  padding: 2rem;
+  border-radius: 10px;
+  margin-left: 1rem;
+  width: 85%;
+  justify-content: space-between;
+  }
+
+@media screen and (max-width: 1400px) {
+  .finder-section {
+    height: 70vh;
+  }
 }
 
 @media screen and (max-width: 1112px) {
@@ -142,6 +212,10 @@ width: 70%;
 .results-and-ads .finance-tool-info {
 margin-bottom: 1rem;
 width: 85%;
+border-radius: 15px;
+}
+.user-rating-div {
+  margin-left: 0;
 }
 }
 
@@ -153,41 +227,56 @@ border-radius: 7px;
 
 .results-and-ads div .avaliable {
 background-color: red;
-width: 70%;
+width: fit-content;
 padding: 0 1rem;
 border-bottom-left-radius: 0px 10px;
 border-bottom-right-radius: 10px;
+text-align: left;
 }
 
+.avaliable h4 {
+  text-align: left;
+}
 
 .results-and-ads div div p {
 color: white;
 font-family: "Montserrat";
 font-size: 0.8rem;
+text-align: left;
+margin-bottom: 0;
+}
+
+.finance-tool-info h4 {
+  margin-top: 1rem;
+  text-align: left;
+}
+
+.finance-tool-info button {
+  margin-top: 1rem;
+  width: fit-content;
 }
 
 .results-and-ads div p {
 color: gray;
 }
 
-.user-rating-div {
-display: flex;
-background-color: #013F8E;
-padding: 2rem;
-border-radius: 10px;
-margin-left: 1rem;
-width: 85%;
-}
-
 .user-info-text {
 background-color: #013F8E;
 width: 22rem;
+display: flex;
+flex-direction: column;
 }
 
 .user-info-text h4 {
 font-size: 1.7rem;
 color: white;
 width: 90%;
+text-align: left;
+}
+
+.user-info-text button {
+  width: fit-content;
+  margin-top: 2rem;
 }
 .user-rating-info .user-rating-info-text {
 display: flex;
@@ -218,16 +307,24 @@ padding-top: 1rem;
 padding-bottom: 1rem;
 height: fit-content;
 max-height: 40vh;
-top: 9.9rem;
+top: 2.5rem;
 border-radius: 0 0 0 10px;
 box-shadow: 0px 8px 10px black;
+z-index: 100;
+padding-left: 0.5rem;
+}
+
+#switch {
+  text-decoration: underline;
+  margin-top: 2rem;
+  font-weight: 600;
+  cursor: pointer;
 }
 
 .freeform-ul li {
-margin-right: 1rem;
 display: flex;
 flex-direction: row;
-
+text-align: left;
 }
 
 .freeform-ul li input {
@@ -293,6 +390,7 @@ padding-bottom: 2.2rem;
 #filtered-car-data div h2 {
 font-weight: 700;
 font-size: 1.4rem;
+margin-bottom: 0.5rem;
 }
 
 #filtered-car-data div h2 a svg {
@@ -371,6 +469,7 @@ z-index: 14;
 
 #filtered-car-data div .market-value p {
 position: relative;
+text-align: left;
 }
 
 #filtered-car-data div .market-value div {
@@ -448,15 +547,22 @@ left: 1rem;
 display: flex;
 justify-content: space-between;
 z-index: 2;
+text-align: left;
+}
+
+.spec-categories div {
+  color: black;
 }
 
 .engine-stats {
 margin: 0;
+margin-top: 1rem;
 position: relative;
 bottom: 2.5rem;
 font-size: 1rem;
 font-weight: 700;
 color: gray;
+text-align: left;
 }
 
 .cost {
@@ -474,6 +580,7 @@ font-size: 2.8rem;
 width: 8rem;
 font-family: Montserrat;
 font-weight: 700;
+text-align: left;
 }
 
 .mpg a {
@@ -496,6 +603,8 @@ margin-bottom: 2rem;
 .filters-list {
 display: flex;
 justify-content: center;
+flex-wrap: wrap;
+margin: 0 5rem;
 }
 
 .filters {
@@ -549,8 +658,9 @@ height: 2rem;
 #saved-cars-container {
 position: fixed;
 height: 100vh;
-width: 20vw;
+width: 30vw;
 z-index: 101;
+overflow-y: scroll;
 background-color: white;
 display: flex;
 flex-direction: column;
@@ -559,11 +669,12 @@ align-items: start;
 -moz-transition: all 0.5s ease;
 -o-transition: all 0.5s ease;
 transition: all 0.5s ease;
-right: -20vw;
+right: -30vw;
 top: 0;
 padding-left: 1rem;
 list-style-type: none;
 box-shadow: 2px 1px 10px gray;
+z-index: 9000;
 }
 
 #saved-cars-container h3 {
@@ -600,6 +711,8 @@ list-style-type: none;
 -moz-transition: all 0.3s ease;
 -o-transition: all 0.3s ease;
 transition: all 0.3s ease;
+display: flex;
+flex-direction: column;
 }
 
 .saved-car:hover {
@@ -609,15 +722,18 @@ background-color: whitesmoke;
 .saved-car h4 {
 color: black;
 font-size: 1.2rem;
+text-align: left;
 }
 
 .saved-car h5 {
 color: black;
+text-align: left;
 }
 
 .saved-car p {
 margin-top: 0;
 font-weight: 600;
+text-align: left;
 }
 
 .saved-car .vehicle-details {
@@ -627,6 +743,9 @@ font-size: 0.8rem;
 .remove-btn {
 color: white;
 font-weight: 600;
+position: relative;
+margin-top: 1rem;
+width: fit-content;
 }
 
 .sorry p {
@@ -683,14 +802,15 @@ text-align: center;
 border: none;
 border-radius: 0 0 10px 10px;
 position: absolute;
-top: 4rem;
+top: 0rem;
 left: 0;
-height: 81%;
+height: 100%;
 display: flex;
 flex-direction: column;
 justify-content: center;
 align-items: center;
 width: 100%;
+border-radius: 7px;
 background-color: rgba(0,0,0,0.5);
 color: white;
 opacity: 0;
@@ -698,7 +818,7 @@ opacity: 0;
 -moz-transition: all 0.2s ease;
 -o-transition: all 0.2s ease;
 transition: all 0.2s ease;
-z-index: 7;
+z-index: 0;
 }
 
 .models-container div:hover span {
@@ -726,7 +846,11 @@ font-weight: 600;
 color: black;
 font-size: 1.2rem;
 padding: 1rem;
+margin-bottom: 0;
+padding-bottom: 1.5rem;
 z-index: 11;
+background-color: white;
+border-radius: 7px 7px 0 0;
 }
 
 .models-you-may-like {
@@ -750,19 +874,7 @@ z-index: 10;
 .models-you-may-like div img {
 height: 17rem;
 border-radius: 0 0 10px 10px;
-}
-
-.line {
-height: 0.7rem;
-position: absolute;
-background-color: #FF4C68;
-width: 15rem;
-border: none;
-top: 1.4rem;
-left: 1.1rem;
-border-radius: 0px;
-opacity: 0.3;
-z-index: 9;
+z-index: -1;
 }
 
 .big-line-1 {
@@ -773,6 +885,7 @@ height: 2rem;
 bottom: 5rem;
 z-index: 7;
 opacity: 0.5;
+border-radius: 7px;
 }
 
 .big-line-2 {
@@ -781,7 +894,9 @@ width: 78vw;
 position: absolute;
 height: 2rem;
 bottom: 9rem;
-z-index: 7;opacity: 0.5;
+z-index: 7;
+opacity: 0.5;
+border-radius: 7px;
 }
 
 .trending {
@@ -1023,6 +1138,7 @@ color: white;
 padding: 1.5rem;
 border-radius: 0 7px 7px 0;
 width: 25rem;
+left: 0.25rem;
 }
 
 .ad-info h4 {
@@ -1052,7 +1168,7 @@ margin: 0;
 height: 0.15rem;
 color: white;
 opacity: 1;
-width: 7rem;
+width: 100%;
 }
 
 .ad-info button {
@@ -1099,6 +1215,7 @@ position: relative;
 background-color: white;
 overflow: hidden;
 border-radius: 10px;
+cursor: pointer;
 
 }
 
@@ -1239,6 +1356,27 @@ margin-top: 1rem;
 font-size: 0.8rem;
 }
 
+#get-specs {
+  margin-top: 2rem;
+  border-radius: 7px;
+  padding-top: 1rem;
+}
+
+#get-specs h1 {
+  font-weight: 600;
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: white;
+}
+
+#spec-select {
+  background-color: white;
+  padding: 1rem;
+  padding-bottom: 2rem;
+  border-radius: 7px;
+}
+
 @media screen and (max-width: 1669px) {
 .news-widget {
 margin-left: 6rem;
@@ -1249,7 +1387,7 @@ margin-right: 6rem;
 @media screen and (max-width: 1654px) {
 .brands {
 width: 80vw;
-margin-left: 5rem;
+margin-left: 7rem;
 }
 .news-widget-card img {
 transform: scale(1.5);
@@ -1327,22 +1465,6 @@ font-size: 0.7rem;
 }
 }
 
-@media screen and (max-width: 991px) {
-.navbar {
-display: flex;
-flex-direction: row;
-position: relative;
-top: -1rem;
-justify-content: start;
-}
-.navbar-nav {
-flex-direction: row;
-width: fit-content;
-align-items: center;
-margin-left: 2rem;
-}
-}
-
 
 @media screen and (max-width: 987px) {
 .models-container {
@@ -1386,6 +1508,9 @@ max-width: 55%;
 .buy-with-confidence h1 {
 text-align: center;
 }
+.finder-section {
+  height: 50vh;
+}
 }
 
 @media screen and (max-width: 851px) {
@@ -1417,6 +1542,10 @@ max-width: 60%;
 }
 
 @media screen and (max-width: 767px) {
+#car-model-data {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
 .clickable-picks .clickable-ads h4 {
 margin-left: 0.5rem;
 margin-right: 0.5rem;
@@ -1433,21 +1562,6 @@ width: 120%;
 .footer-top {
 flex-direction: column;
 }
-}
-
-@media screen and (max-width: 753px) {
-.navbar-nav {
-margin-left: 0;
-}
-}
-
-@media screen and (max-width: 707px) {
-.navbar {
-height: 7vh;
-}
-.navbar-nav {
-margin-top: -1.3rem;
-} 
 }
 
 @media screen and (max-width: 727px) {
@@ -1469,6 +1583,7 @@ grid-row: 6/7;
 }
 .news-widget-card h3 {
 font-size: 0.9rem;
+color: black;
 }
 .news-widget {
 margin-left: 1rem;
@@ -1522,6 +1637,39 @@ font-size: 2rem;
 .buy-with-confidence div span {
 max-width: 75%;
 }
+#navigation svg {
+  margin-right: 1rem;
+}
+}
+
+@media screen and (max-width: 526px) {
+
+  .finder-section {
+    height: 55vh;
+    background-size: 190%;
+    backdrop-filter: grayscale(30%);
+  }
+  #nav-links {
+    position: fixed;
+    flex-direction: column;
+    text-align: left;
+    top: 0;
+    right: -50vw;
+    padding-top: 2rem;
+    padding-right: 2rem;
+    background-color: white;
+    height: 100vh;
+    width: fit-content;
+    -webkit-transition: all 0.5s ease;
+-moz-transition: all 0.5s ease;
+-o-transition: all 0.5s ease;
+transition: all 0.5s ease;
+  }
+
+  #nav-links a {
+    margin-bottom: 2rem;
+    padding-left: 1rem;
+  }
 }
 
 @media screen and (max-width: 492px) {
@@ -1544,14 +1692,11 @@ width: 70%;
   overflow: visible;
 }
 #saved-cars-container {
-  right: -80vw;
-  width: 70vw;
+  right: -100vw;
+  width: 80vw;
 }
 .models-container div span {
   height: 75%;
-}
-.freeform-ul {
-  top: 7.5rem;
 }
 #filtered-car-data {
   margin: 0 0.5rem;
@@ -1571,9 +1716,16 @@ width: 70%;
 .finance-calc-text {
   text-align: center;
 } 
+#finder-section-content {
+  top: 0rem;
+}
+.model-data tbody {
+  font-size: 0.6rem;
+}
 }
 
 @media screen and (max-width: 405px) {
+
 .user-info-text h4 {
 font-size: 1.2rem;
 }

@@ -1,0 +1,264 @@
+#page-split {
+    display: flex;
+    margin: 2rem;
+    margin: 0 10rem;
+}
+
+#blog-intro img {
+    height: 20rem;
+    width: 100%;
+    object-fit: cover;
+}
+
+#blog-intro h2 {
+    position: relative;
+    color: white;
+    font-weight: 800;
+    bottom: 10rem;
+    font-size: 5rem;
+}
+
+#blog-posts {
+    display: flex;
+    flex-direction: column;
+    min-width: 65vw;
+}
+
+#blog-posts div {
+    text-align: left;
+    margin-right: 5%;
+    margin-bottom: 4rem;
+}
+
+#blog-posts div img {
+    height: 15rem;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+    margin-bottom: 2rem;
+}
+
+#blog-posts div h3 {
+    font-size: 2rem;
+    font-weight: 800;
+}
+
+#blog-posts div button {
+    background-color: #FF4C68;
+    color: white;
+    border: none;
+    padding: 0.5rem 2rem;
+    border-radius: 3px;
+    font-weight: 600;
+}
+
+#blog-navigation {
+    text-align: left;
+}
+
+.category-line {
+    background-color: #FF4C68;
+    height: 0.5rem;
+    width: 20%;
+    margin-bottom: 1rem;
+}
+
+#categories h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-top: 2rem;
+}
+
+#categories .post-count {
+    color: gray;
+    margin-bottom: 0;
+}
+
+#categories .category-name {
+    color: gray;
+    pointer-events: all;
+    cursor: pointer;
+    margin: 1rem 0;
+}
+
+#categories .category-name:hover {
+    color: black;
+}
+
+.category-div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#blog-searchbar {
+    display: flex;
+    height: 2.5rem;
+}
+
+#blog-searchbar input {
+    outline: none;
+}
+
+#blog-searchbar button {
+    background-color: #FF4C68;
+    color: white;
+    border: none;
+    border-radius: 0 3px 3px 0;
+    border: 0;
+    outline: 0;
+    position: relative;
+    right: 0.5rem;
+    padding: 0 1rem;
+}
+
+#no-matches {
+    color: black;
+    margin-right: 2rem;
+    font-size: 1.5rem;
+    width: 55vw;
+    position: relative;
+}
+
+#popular-tags h3 {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.selected {
+    color: #FF4C68;
+}
+
+#blog-ad {
+    margin-top: 3rem;
+    background-color: #FF4C68;
+    display: flex;
+    position: relative;
+    padding: 2rem 1rem 1rem 0;
+    border-radius: 7px;
+}
+
+#blog-ad h2 {
+    z-index: 2;
+    color: #FF4C68;
+    font-weight: 700;
+    background-color: white;
+    padding-left: 1rem;
+    position: relative;
+    clip-path: polygon(0% 0%,
+                   100% 0%,
+                   0% 700%,
+                    0% 50%);
+    
+}
+
+
+#blog-ad h3 {
+    z-index: 2;
+    color: white;
+    font-weight: 800;
+    padding-left: 1rem;
+    margin-bottom: 0;
+    position: relative;
+}
+
+#blog-ad p {
+    padding-left: 1rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-top: 0;
+    color: white;
+    z-index: 2;
+    position: relative;
+}
+
+#blog-ad img {
+height: 7.5rem;
+position: absolute;
+right: 0;
+top: 4.5rem;
+z-index: 0;
+opacity: 0.95;
+}
+
+#recent-posts {
+   margin-top: 3rem;
+}
+
+.recent-post {
+    display: flex;
+    margin-top: 2rem;
+    width: 20rem;
+}
+
+.recent-post h4 {
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.recent-post p {
+    color: gray;
+}
+
+#recent-posts h2 {
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+
+#recent-posts img {
+    height: 7rem;
+    width: 7rem;
+    object-fit: cover;
+    border-radius: 7px;
+    margin-right: 1rem;
+}
+
+.recent-post div {
+    display: flex;
+    flex-direction: column;
+}
+
+@media screen and (max-width: 1304px) {
+    #page-split {
+        margin: 0 2rem;
+    }
+}
+
+@media screen and (max-width: 937px) {
+    .category-div {
+        width: 14rem;
+    }
+}
+
+@media screen and (max-width: 709px) {
+    #page-split {
+        flex-direction: column-reverse;
+    }
+    #mobile-flex {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    #categories {
+        width: fit-content;
+        margin-top: 5rem;
+        margin-bottom: 3rem;
+    }
+
+    #categories .post-count {
+        display: none;
+    }
+    .category-div {
+        width: fit-content;
+        margin-right: 2rem;
+    }
+    #blog-navigation {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+    #blog-searchbar {
+        width: 100%;
+    }
+}
+

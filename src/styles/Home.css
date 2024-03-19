@@ -17,10 +17,50 @@ h3 {
 #title {
   position: relative;
   background-color: #ff4c68;
-  padding-left: 150px;
-  padding-right: 280px;
+  padding-left: 3rem;
+  padding-right: 3rem;
   padding-bottom: 40px;
   margin: 0;
+  border-radius: 0 0 50px 0;
+}
+
+.title-page {
+  display: flex;
+  flex-direction: column;
+}
+
+
+.title-page button {
+  width: fit-content;
+}
+
+#find-car {
+  color: white;
+  margin-left: 2rem;
+  background-color: rgba(0, 0, 0, 0);
+  border-radius: 3px;
+  border: none;
+  font-family: "Montserrat";
+}
+
+#careers-btn {
+  color: white;
+  margin-left: 2rem;
+  background-color: rgba(0, 0, 0, 0);
+  border-radius: 3px;
+  border: none;
+  font-family: "Montserrat";
+}
+
+#sign-up-btn {
+  margin-right: 1rem;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 7px;
+  font-weight: 600;
+  background-color: #FF4C68;
+  color: white;
+  border: 1px solid white;
 }
 
 #logIn-Btn {
@@ -57,6 +97,469 @@ h3 {
   margin: 0;
   padding: 2rem 0 2rem 0;
   margin: 1rem;
+  margin-bottom: 2.5rem;
+}
+
+#who-we-are {
+  display: flex;
+  justify-content: center;
+  margin: 0 3rem 8rem 3rem;
+}
+
+#who-we-are-cards {
+  display: flex;
+}
+
+#who-we-are-cards svg {
+  height: 2rem;
+}
+
+#who-we-are-cards h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-top: 1rem;
+  white-space: nowrap;
+}
+
+#who-we-are-left h5 {
+  margin-bottom: 1rem;
+  background-color: #FF4C68;
+  width: fit-content;
+  color: white;
+  padding: 0 0.5rem 0 0.5rem;
+  border-radius: 20px;
+}
+
+#who-we-are-left h3 {
+  font-weight: 800;
+  font-size: 2.5rem;
+  width: 90%;
+}
+
+.who-we-are-info {
+  color: gray;
+  margin-bottom: 3rem;
+  width: 90%;
+}
+
+#who-we-are-cards div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 3rem;
+  border-left: 1px solid lightgray;
+}
+
+#who-we-are-cards div:first-child {
+  border-left: none;
+  padding-left: 0;
+}
+
+#who-we-are-right {
+  position: relative;
+}
+
+#who-we-are-right img {
+  height: 20rem;
+}
+
+#who-we-are-right div {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: -1;
+  height: 95%;
+  width: 35%;
+  background-color: #FF4C68; /* Background color */
+  border-top-right-radius: 300px; /* Half of the height to create the curve */
+  border-bottom-right-radius: 300px;
+}
+
+#dont-settle {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5rem;
+}
+
+#dont-settle-right {
+  background-color: #FF4C68;
+  color: white;
+  width: 65%;
+  padding: 5rem 8% 5rem 5rem
+}
+
+#dont-settle-right h2 {
+  font-weight: 800;
+}
+
+#dont-settle-right button {
+  background-color: black;
+  color: white;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 7px;
+  font-weight: 700;
+  margin-top: 2rem;
+}
+
+#dont-settle-left {
+  position: relative;
+  width: 35%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+#dont-settle-left img {
+  width: 70%;
+}
+
+#dont-settle-left img:first-child {
+  position: absolute;
+  left: 15%;
+  bottom: 2.5rem;
+  height: 100%;
+  z-index: 1;
+  object-fit: cover;
+  border-radius: 3px;
+}
+
+#dont-settle-left img:last-child {
+  position: relative;
+  height: 120%;
+  left: 0;
+  object-fit: cover;
+  border-radius: 0 0 3px 3px;
+}
+
+#more-info-about {
+  margin-top: 12rem;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10rem;
+}
+
+#flex-1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  left: 5rem;
+}
+
+#flex-2 {
+  display: flex;
+  justify-content: center;
+  flex-direction: row-reverse;
+  align-items: center;
+  position: relative;
+  margin-top: 10rem;
+}
+
+#flex-2 .flex-text {
+  position: relative;
+  bottom: 4rem;
+  margin-left: 5rem;
+}
+
+
+#flex-2 .flex-text button {
+  background-color: #FF4C68;
+  color: white;
+  font-weight: 600;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 7px;
+}
+
+#flex-1 button {
+  padding: 0.5rem;
+  border: 1px solid lightgray;
+  background-color: white;
+  color: black;
+  font-weight: 600;
+  border-radius: 7px;
+}
+
+.flex-text h3 {
+  font-weight: 800;
+  margin-bottom: 2rem;
+}
+
+.flex-text div {
+  display: flex;
+  align-items: start;
+  margin-bottom: 1rem;
+}
+
+.flex-text div svg {
+  background-color: #FF4C68;
+  padding: 0.5rem;
+  border-radius: 100%;
+  margin-right: 1rem;
+}
+
+.flex-media-info-block {
+  background-color: #FF4C68;
+  color: white;
+  padding: 2rem;
+  display: flex;
+  justify-content: start;
+  width: 60%;
+  border-radius: 7px;
+  box-shadow: 0px 0px 20px #FF4C68;
+  position: relative;
+}
+
+.flex-media-info-block div {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.flex-media {
+  position: relative;
+}
+
+.flex-media img {
+  position: absolute;
+  z-index: -1;
+  border-radius: 7px;
+  bottom: -2rem;
+  height: 20rem;
+  left: 2rem;
+}
+
+.flex-media-info-block svg {
+  margin-right: 1rem;
+  padding: 0.5rem;
+  border-radius: 100%;
+  background-color: rgba(0,0,0,0.2);
+}
+
+.flex-media-info-block-2 svg {
+  margin-right: 1rem;
+  padding: 0.5rem;
+  border-radius: 100%;
+  background-color: rgba(0,0,0,0.2);
+}
+
+.flex-media-info-block-2 {
+  background-color: #FF4C68;
+  color: white;
+  padding: 2rem;
+  display: flex;
+  justify-content: start;
+  width: 60%;
+  border-radius: 7px;
+  box-shadow: 0px 0px 20px #FF4C68;
+  position: relative;
+  left: 10rem;
+  bottom: 4.5rem;
+}
+
+.flex-media-info-block-2 div {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.flex-2-info {
+  width: 25rem;
+}
+
+#achieve {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 5rem;
+}
+
+#achieve hr {
+  background-color: gray;
+  height: 2px;
+  width: 60%;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
+
+#achieve h1 {
+  font-weight: 800;
+  font-size: 2rem;
+  width: 40%;
+  text-align: center;
+  color: black;
+}
+
+#achieve h1 a {
+  background-color: #FF4C68;
+  padding: 0 0.5rem;
+  color: white;
+}
+
+#awards {
+  display: flex;
+  margin-top: 1rem;
+}
+
+.margin {
+  margin-right: 3rem;
+}
+
+#awards div {
+  display: flex;
+  align-items: center;
+}
+
+#awards div p {
+  margin: 0;
+  font-size: 600;
+  font-family: Montserrat;
+}
+
+#awards div svg {
+  margin: 0;
+  margin-right: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 100%;
+  border: 2px solid #FF4C68;
+}
+
+#customer-stats {
+  display: flex;
+}
+
+#customer-stats h2 {
+  margin-right: 10rem;
+}
+
+#stats {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+#stats .stat {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 3rem;
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+#stats .stat .background-div {
+  background-color: whitesmoke;
+  width: 100%;
+  height: 100%;
+}
+
+#stats .stat .colored-div {
+  background-color: #FF4C68;
+  width: 50%;
+  height: 100%;
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#stats .stat .colored-div p {
+  margin: 0 0.5rem 0 0.5rem;
+  font-size: 0.8rem;
+  color: white;
+  font-family: Montserrat;
+}
+
+#more-stats {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 8rem;
+  position: relative;
+}
+
+#more-stats h2 {
+  font-weight: 800;
+  width: 30rem;
+  margin-right: 15rem;
+}
+
+#stat-numbers {
+  display: flex;
+  flex-direction: column;
+}
+
+#stat-numbers .stat-info {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+#stat-numbers .stat-info div {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-left: 1rem;
+}
+
+#stat-numbers .stat-info div p {
+  font-family: Montserrat;
+}
+
+#stat-numbers .stat-info div svg {
+  height: 1.5rem;
+}
+
+#links {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 9rem;
+}
+
+#links .links-div {
+  margin: 1rem;
+  width: 20rem;
+  box-shadow: 0 0 15px gray;
+  border-radius: 7px;
+}
+
+#links .links-div div {
+  border-radius: 0 0 7px 7px;
+  background-color: whitesmoke;
+  padding: 2rem 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+#links div h3 {
+  margin-top: 1rem;
+  font-family: Montserrat;
+  font-weight: 800;
+}
+
+#links div img {
+  height: 14rem;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 7px 7px 0 0;
+}
+
+#links div button {
+  margin-top: 1rem;
+  background-color: #FF4C68;
+  padding: 0.5rem;
+  color: white;
+  font-weight: 600;
+  font-family: Montserrat;
+  border: none;
+  border-radius: 7px;
 }
 
 #testimonials {
@@ -142,7 +645,7 @@ h4 {
 .i-phone .porsche {
 position: relative;
 transform: rotate(0deg) scale(0.8);
-height: 45rem;
+height: 40rem;
 top: -3rem;
 left: -20rem;
 }
@@ -199,6 +702,10 @@ color: white;
 }
 .card-body {
   text-align: center;
+}
+.card-body .editbtn {
+  position: relative;
+  top: 2.5rem;
 }
 .card-header {
   text-align: center;
@@ -366,7 +873,7 @@ align-items: center;
 text-align: center;
 left: 25vw;
 top: 10vh;
-z-index: 1000;
+z-index: 100000;
 border-radius: 10px;
 opacity: 0;
 }
@@ -424,7 +931,9 @@ background-color: #FF4C68;
 color: white;
 font-family:"Montserrat";
 font-weight: 400;
-padding: 0.5rem 4.5rem;
+width: fit-content;
+padding: 0.5rem 4rem;
+white-space: nowrap
 }
 
 #backdrop {
@@ -447,6 +956,7 @@ color: white;
 #register h2 {
 font-family:"Montserrat";
 font-weight: 600;
+text-align: left;
 }
 
 #register button {
@@ -457,7 +967,7 @@ background-color: white;
 color: black;
 font-family:"Montserrat";
 font-weight: 400;
-padding: 0.5rem 4.5rem;
+padding: 0.5rem 2.5rem;
 }
 
 #register {
@@ -476,6 +986,11 @@ padding: 0 2rem;
 transition: all 0.3s ease;
 }
 
+#account-btns {
+  position: absolute;
+  right: 2rem;
+}
+
 #create-account {
 display: none;
 flex-direction: column;
@@ -485,6 +1000,11 @@ font-weight: 300;
 color: white;
 opacity: 0;
 justify-content: center;
+display: flex;
+}
+
+#create-account p {
+  text-align: left;
 }
 
 #create-account h2 {
@@ -509,14 +1029,27 @@ display: flex;
 color: #ff4c68;
 }
 
-.X {
+#account {
+  display: flex;
+}
+
+#account button {
+  margin-left: 2rem;
+  border-radius: 7px;
+  border: none;
+  position: relative;
+  bottom: 0.3rem;
+  font-weight: 600;
+}
+
+#new-here .X {
 position: absolute;
 right: 3rem;
 top: 2rem;
-font-size: 2rem;
+font-size: 1.5rem;
 border: 1px solid white;
 border-radius: 100px;
-padding: 0 1rem;
+padding: 0 0.5rem;
 cursor: pointer;
 }
 .X:hover {
@@ -524,13 +1057,33 @@ cursor: pointer;
   border: 1px solid black;
 }
 
+#new-here p {
+  text-align: left;
+}
+
+#create-account .X {
+position: absolute;
+right: 1rem;
+top: 1rem;
+font-size: 1rem;
+border: 1px solid white;
+border-radius: 100px;
+padding: 0 0.5rem;
+cursor: pointer;
+}
+
 @media screen and (max-width: 1400px) {
+ 
+  #register {
+    width: 100%;
+  }
   #login #login-form h2 {
     font-size: 1.7rem;
   }
   #register h2 {
     font-size: 1.7rem;
   }
+  
 }
 
 @media screen and (max-width: 1269px) {
@@ -542,7 +1095,73 @@ left: -10rem;
 
 }
 
+@media screen and (max-width:1190px) {
+  #login-section {
+    width: 100%;
+    left: unset;
+    margin: 0;
+    top: 5vh;
+    height: 90vh;
+  } 
+  #register h2 {
+    font-size: 3rem;
+  }
+  #create-account {
+    width: 80%;
+  }
+  #flex-1 {
+    left: 3rem;
+    
+  }
+  .flex-text h3 {
+    text-align: left;
+  }
+  .flex-media img {
+    height: 15rem;
+  }
+  
+  #who-we-are {
+    flex-wrap: wrap;
+  }
+
+  #flex-2 .flex-text {
+    margin-left: 0rem;
+  }
+
+  .flex-2-info {
+    text-align: left;
+  }
+
+  #who-we-are-left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 2rem;
+  }
+
+  #who-we-are-cards div:first-child {
+    padding-left: 3rem;
+  }
+}
+
 @media screen and (max-width:1079px) {
+  #more-stats h2 {
+    margin-right: 1rem;
+    text-align: left;
+  }
+
+  #more-stats {
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+  
+  #links {
+    flex-wrap: wrap;
+  }
+  #customer-stats h2 {
+    margin-right: 1rem;
+    text-align: left;
+  }
   #title {
   padding-left: 2rem;
   }
@@ -591,16 +1210,84 @@ width: 15rem;
 
 }
 
+@media screen and (max-width: 865px) {
+
+  #customer-stats h2 {
+    margin-bottom: 3rem;
+  }
+  #customer-stats {
+    flex-direction: column;
+    margin: 2rem;
+  }
+  #stats .stat .colored-div p {
+    text-align: start;
+  }
+}
+
 @media screen and (max-width: 845px) {
+  #achieve h1 {
+    width: 90%;
+  }
+  #awards {
+    width: 90%;
+  }
+  #awards div p {
+    font-size: 0.8rem;
+    text-align: left;
+  }
 #press {
 display: flex;
 flex-direction: row;
 justify-content: center;
 flex-wrap: wrap;
 }
+#dont-settle-right {
+  padding: 2rem;
+}
+#dont-settle-right button {
+  margin-top: 0.5rem;
+}
+#flex-1 {
+  flex-wrap: wrap;
+  left: 0rem;
+}
+.flex-text {
+  margin-bottom: 5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.flex-media {
+  display: flex;
+  justify-content: center;
+}
+.flex-media-info-block-2 {
+  left: 0;
+  text-align: left;
+}
+}
+
+@media screen and (max-width: 819px) {
+  #flex-2 .flex-media {
+    display: none;
+  }
+  #more-stats {
+    flex-direction: column;
+  }
+  #more-stats h2 {
+    width: unset;
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+  #stat-numbers .stat-info div p {
+    text-align: left;
+  }
+
+ 
 }
 
 @media screen and (max-width: 715px) {
+
 .col-lg-6 {
 height: 18rem;
 } 
@@ -623,15 +1310,59 @@ top: 5rem;
 }
 }
 
+@media screen and (max-width: 638px) {
+  #who-we-are-cards {
+    display: none;
+  }
+
+}
+
 @media screen and (max-width: 588px) {
+
+.flex-text {
+  margin: 1rem 1rem 6rem 1rem;
+}
+.flex-text p {
+  text-align: left;
+}
+.flex-media-info-block {
+  width: 90%;
+}
+.flex-media-info-block div {
+  text-align: start;
+}
 .i-phone .porsche {
 height: 25rem;
 top: 0rem;
 left: -9rem;
 }
+#who-we-are {
+  margin: 0 0 4rem 0;
+}
+#who-we-are-right img {
+  height: 15rem;
+}
 }
 
 @media screen and (max-width: 563px) {
+  #register h2 {
+    font-size: 2rem;
+  }
+  #create-account p {
+    text-align: left;
+  }
+  #already-have h2 {
+    font-size: 1.5rem;
+  }
+
+  #register {
+  padding: 1rem 0.5rem;
+  }
+
+  #register button {
+    padding: 0.5rem 1rem;
+  }
+
 .nav-item {
 width: 30vw;
 }
@@ -662,6 +1393,27 @@ top: 5rem;
 display: block;
 position: relative;
 }
+#dont-settle-left {
+  display: none;
+}
+#dont-settle-right {
+  width: unset;
+}
+#account-btns {
+  position: relative;
+  right: -1rem;
+}
+
+#account-btns button {
+  width: 90%;
+  margin-bottom: 1rem;
+}
+#login div button {
+  padding: 0.5rem 1rem;
+}
+#create-account {
+  width: 95%;
+}
 }
 
 @media screen and (max-width: 474px) {
@@ -670,16 +1422,31 @@ height: 20rem;
 top: 4rem;
 left: -7rem;
 }
+#who-we-are-right img {
+  height: 12rem;
+}
+}
+
+@media screen and (max-width: 460px) {
+  .flex-text p {
+    width: unset;
+  }
+
+  #flex-2 {
+    margin: 10rem 1rem 1rem 1rem;
+  }
+  #more-info-about {
+    margin-bottom: 0rem;
+  }
+  
 }
 
 @media screen and (max-width: 440px) {
-  #register {
-    display: none;
+  .margin {
+    margin-right: 0.5rem;
   }
-
   #login-section {
-    width: 90vw;
-    left: 5vw;
+    top: 5rem;
     height: 60vh;
   }
   #login-X {
@@ -701,6 +1468,13 @@ left: -7rem;
 }
 
 @media screen and (max-width: 398px) {
+ 
+  #already-have h2 {
+    font-size: 1rem;
+  }
+  #register h2 {
+    font-size: 1.5rem;
+  }
 .i-phone .porsche {
 height: 15rem;
 top: 8rem;

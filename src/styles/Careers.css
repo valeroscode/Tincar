@@ -1,0 +1,464 @@
+
+body {
+    overflow-x: unset;
+}
+
+.join-us {
+font-weight: 400;
+background-color: rgba(0, 0, 0, 0);
+color: white;
+padding: 3rem 0;
+position: relative;
+margin: 0;
+bottom: 1rem;
+z-index: 1;
+}
+
+#lets-charge {
+    height: fit-content;
+    position: relative;
+}
+
+#lets-charge p {
+    margin: 0 20rem;
+    font-size: 1.5rem;
+}
+
+#job-finder {
+    background-color: white;
+    height: 11rem;
+    display: flex;
+    align-items: flex-end;
+    position: relative;
+    top: 7rem;
+    background: rgb(255,76,104);
+background: linear-gradient(90deg, rgba(255,76,104,1) 0%, rgba(255,87,113,1) 17%, rgba(255,103,126,1) 34%, rgba(255,133,152,1) 49%, rgba(255,173,186,1) 73%, rgba(255,198,207,1) 84%, rgba(255,233,237,1) 100%);
+}
+
+#job-finder h3 {
+    color: white;
+    position: relative;
+    left: 3rem;
+    font-size: 4rem;
+    font-weight: 800;
+}
+
+
+
+#careers-image {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    height: 80vh;
+    background-position: 50%;
+    width: 100vw;
+}
+
+#careers-image h1 {
+    position: relative;
+    top: -16rem;
+    z-index: 2;
+    font-size: 5rem;
+}
+
+#careers-background-img {
+    width: 100%;
+    position: relative;
+    top: 0;
+    height: 65vh;
+    object-fit: cover;
+}
+
+#careers-text-div h1 {
+    color: black;
+}
+
+#careers-text-div {
+    margin: 0 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    text-align: left;
+}
+#careers-image video {
+    height: 230%;
+    width: 100%;
+    position: absolute;
+    object-fit: cover;
+    z-index: 1;
+    bottom: 0rem;
+    mask-image: -webkit-gradient(linear, left 80%, left bottom, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)))
+}
+
+#careers-image h1 {
+    font-weight: 600;
+    margin-bottom: 0;
+    
+}
+
+#careers-image p {
+    font-size: 1.3rem;
+    margin-top: 0rem;
+    position: relative;
+  
+}
+
+
+#find-career-section {
+    background-color: white;
+    position: relative;
+    bottom: 1rem;
+    padding: 1rem;
+    top: 7rem;
+}
+
+#find-career-section h3 {
+    color: black;
+    text-align: left;
+    margin-left: 4.5rem;
+    font-size: 1.7rem;
+}
+
+#career-selection-modal {
+    color: black;
+    width: 100%;
+    text-align: start;
+    display: flex;
+    padding: 0;
+    margin: 0 4rem;
+}
+
+#career-selection-modal li {
+    width: 19rem;
+    height: 2.3rem;
+    border: 1px solid black;
+    list-style: none;
+    margin: 0 0.5rem 0 0.5rem;
+}
+.dropdown-container {
+    display: flex;
+    justify-content: start; 
+    align-items: center;
+    height: 100%;
+    position: relative;
+    pointer-events: all;
+    cursor: pointer;
+}
+
+.dropdown-container h6 {
+    color: black;
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 0;
+    height: 100%;
+    position: absolute;
+    top: 0.5rem;
+    left: 1rem;
+
+}
+
+.dropdown-container button {
+    background-color: white;
+    color: black;
+    height: 1rem;
+    position: absolute;
+    right: 1rem;
+    top: 0.5rem;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+}
+
+.dropdown-container button:hover {
+    color: black;
+}
+
+.dropdown-list {
+    background-color: whitesmoke;
+    width: 100%;
+    height: fit-content;
+    position: relative;
+    flex-direction: column;
+}
+
+.DD-item {
+    display: flex;
+    color: black;
+    font-size: 1rem;
+    font-weight: 500;
+    margin-left: 0.9rem;
+    cursor: pointer;
+}
+
+.DD-item:hover {
+    background-color: whitesmoke;
+}
+
+.DD-item p {
+    margin: 0.5rem 0;
+    margin-left: 0.5rem;
+
+}
+
+#search-results {
+    margin: 3rem 4rem;
+    padding-bottom: 4rem;
+    height: 30rem;
+    overflow-y: scroll;
+}
+
+#search-results .job-listing {
+    color: black;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 4rem 0 0.5rem;
+    text-align: left;
+    border-left: 4px solid gray;
+    border-bottom: 3px solid white;
+    border-radius: 0;
+    padding-left: 2rem;
+    cursor: pointer;
+    padding-top: 1rem;
+}
+
+.description {
+    text-align: left;
+    width: 80%;
+}
+
+#search-results .job-listing:hover {
+    background-color: whitesmoke;
+}
+
+.job-listing div {
+    width: 20%;
+    pointer-events: none;
+}
+
+.job-listing div h5 {
+    text-align: left;
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+#job-details {
+    position: fixed;
+    height: 100vh;
+    width: 40vw;
+    background-color: white;
+    z-index: 7;
+    top: 0;
+    right: -50rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    color: black;
+    box-shadow: 0 0 10px black;
+    overflow-y: scroll;
+    -webkit-transition: all 500ms ease;
+    -moz-transition: all 500ms ease;
+    -ms-transition: all 500ms ease;
+    -o-transition: all 500ms ease;
+    transition: all 500ms ease;
+}
+
+#job-details img {
+    height: 25rem;
+    width: 100%;
+    object-fit: cover;
+}
+
+#job-details::-webkit-scrollbar {
+    display: none;
+}
+
+#job-details video {
+    height: 20rem;
+    width: 100%;
+    object-fit: cover;
+}
+
+#job-details .X-btn {
+    background-color: rgba(0,0,0,0.2);
+    height: 2rem;
+    width: 2rem;
+    z-index: 9;
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    fill: white;
+    border-radius: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid white;
+}
+
+#job-details-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: 3rem;
+    position: relative;
+    top: 1rem;
+}
+
+#job-details-info h1 {
+    text-align: left;
+    color: black;
+}
+
+.benefits {
+    text-align: left;
+}
+
+#job-details .bottom {
+text-align: left;
+padding-bottom: 5rem;
+}
+
+#job-details .bottom #bottom-details p {
+    margin: 0;
+    margin-left: 3rem;
+}
+
+#job-details .bottom #bottom-details div {
+    display: flex;
+    justify-content:space-between;
+}
+
+#job-details .bottom #bottom-details h5 {
+    margin: 0;
+}
+
+#job-details .bottom h3 {
+    font-size: 2rem;
+}
+
+#apply-btn {
+    margin-top: 2rem;
+    background-color: #FF4C68;
+    color: white;
+    border: none;
+    padding: 1rem;
+    border-radius: 7px;
+    font-weight: 800;
+}
+
+.pagination {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    top: 3rem;
+    margin-bottom: 15rem;
+}
+
+.pagination li {
+    margin: 0 1rem;
+    pointer-events: all;
+    cursor: pointer;
+}
+
+.pagination li a {
+    color: black;
+    border-radius: 7px;
+}
+
+.pagination li:first-child a {
+    background-color: whitesmoke;
+}
+
+@media screen and (max-width: 1024px) {
+    #lets-charge {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    #lets-charge p {
+        width: 80%;
+        text-align: center;
+    }
+    #find-career-section h3 {
+        margin-left: 2rem;
+    }
+    #career-selection-modal {
+        margin-left: 2rem;
+    }
+    #search-results {
+        margin: 2rem 2rem;
+    }
+
+    #job-details {
+        width: 50vw;
+    }
+
+    #lets-charge p {
+        margin: 0 5rem;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    #find-career-section h3 {
+        margin-left: 1rem;
+    }
+    #career-selection-modal {
+        margin-left: 0.8rem;
+    }
+    #search-results {
+        margin: 1rem 1rem;
+    }
+}
+
+@media screen and (max-width: 450px) {
+
+    .join-us {
+        font-size: 2rem;
+    }
+
+    #lets-charge p {
+        margin: 0 1rem;
+    }
+
+    #job-finder h3 {
+        left: 1rem;
+    }
+
+    #find-career-section h3 {
+        margin-left: 1rem;
+    }
+
+    #career-selection-modal {
+        margin: 0 0.5rem;
+    }
+
+    #search-results {
+        margin: 3rem 1rem;
+    }
+
+    #search-results .job-listing {
+        flex-direction: column;
+        margin: 1rem 0;
+    }
+
+    .job-listing div {
+        width: 100%;
+    }
+
+    .job-listing div h5 {
+        margin: 0.5rem 0;
+    }
+
+    .dropdown-container h6 {
+        font-size: 0.8rem;
+        left: 0.5rem;
+    }
+
+    #job-details {
+        width: 100vw;
+    }
+}

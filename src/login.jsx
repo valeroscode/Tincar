@@ -43,6 +43,7 @@ function Login () {
   }
 
   function handleLogin(username, password) {
+    if (username !== '' && password !== '') {
     fetch(`http://localhost:3000/auth/login`, {
       method: 'POST',
       headers: {
@@ -63,9 +64,11 @@ function Login () {
     }).catch(e => {
       console.error(e.error)
     })
+  }
   } 
 
   function handleSignUp() {
+    if (regName.current.value !== '' && regUsername.current.value !== '' && regPassword.current.value !== '') {
     fetch(`http://localhost:3000/auth/register`, {
       method: 'POST',
       headers: {
@@ -84,6 +87,9 @@ function Login () {
     }).catch(e => {
       console.error(e.error)
     })
+  } else {
+    alert('all fields must be filled')
+  }
   } 
 
   function showLogin(e) {
@@ -129,16 +135,14 @@ alreadyHave.current.style.display = 'flex'
   <>
   <section ref={loginSec} id='login-section'>
   <section id='login' ref={loginContainer}>
-  <div className='logo'><FontAwesomeIcon icon={faFireFlameCurved} /> <p>TinCar</p></div>
 
     <div ref={alreadyHave} id='already-have'>
-    <div className='X' onClick={(e) => loginModal(e)}>X</div>
+    
     <h2>Have an Account?</h2>
-    <button onClick={(e) => showLogin(e)}>Log In</button>
+    <button onClick={(e) => showLogin(e)} id="already-have-btn">Log In</button>
     </div>
 
     <div ref={loginForm} id='login-form'>
-    <div id='login-X' className='X' onClick={(e) => loginModal(e)}>X</div>
         <h2>Login to Your Account</h2>
         <p>And experiance car shopping magic</p>
         <input ref={username} placeholder='Username' id='username' type="text" />
@@ -157,10 +161,11 @@ alreadyHave.current.style.display = 'flex'
     <div className='X' onClick={(e) => loginModal(e)}>X</div>
     <h2>New Here?</h2>
     <p>Sign up to discover what the used car market has to offer!</p>
-    <button onClick={(e) => showSignUp(e)}>Sign Up</button>
+    <button id="signup-btn" onClick={(e) => showSignUp(e)}>Sign Up</button>
     </div>
 
     <div ref={createAcc} id='create-account'>
+    <div className='X' onClick={(e) => loginModal(e)}>X</div>
     <h2>Create an Account</h2>
         <p>And experiance car shopping magic</p>
         <input ref={regName} placeholder='Name' id='reg-name' type="text" />

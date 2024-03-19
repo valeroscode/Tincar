@@ -5,23 +5,30 @@ import Lottie from 'lottie-react';
 import animationData from './assets/waitingAPI.json';
 import { Helmet } from 'react-helmet';
 import './styles/Finder.css'
-import { Link } from 'react-router-dom';
-import SavedCars from './SavedCars';
-import dotenv from 'dotenv'
+import { useNavigate } from 'react-router-dom';
+import Login from './login';
 import { useCookies } from 'react-cookie';
+import Header from './Header'
+import Footer from './Footer';
 
 function Finder() {
 
-  const [cookies, setCookies] = useCookies(["access_token"])
+  const navigate = useNavigate()
+
+  const [cookies] = useCookies(["access_token"])
 
     const lottie = useRef()
     const sorry = useRef()
     const searchRes = useRef()
+    const save1 = useRef()
+    const save2 = useRef()
+    const save3 = useRef()
     let results = [];
     const [loaded, setLoaded] = useState(false)
     const [vehicleResults, setVehicleResults] = useState([])
     const [filterSt, setFilterSt] = useState([])
     const [failedSearch, setFailedSearch] = useState([])
+    const [tool, setTool] = useState('find')
     const filters = []
 
     const makes = []
@@ -36,11 +43,7 @@ function Finder() {
 
     const ul = useRef();
     
-    useEffect(() => {
-        ul.current.style.display = 'none'
-    })
-
-    const financial = {
+        const financial = {
       Exotic_Cars: ['Lamborghini', 'Ferrari', "Aston Martin"],
       Luxury_Cars_Euro_Am: ['Mercedez-Benz', "BMW", 'Audi', "Cadillac", 'Jaguar'],
       Luxury_JDM: ['Lexus', 'Acura'],
@@ -64,7 +67,7 @@ function Finder() {
       estMarketValue: function (cost, title) {
           const carName = String(title.childNodes[0].textContent).split(' ')[1];
           const carModel = String(title.childNodes[0].textContent).split(' ')[2];
-          const yearsOld = 2013 - parseInt(String(title.childNodes[0].textContent).split(' ')[0])
+          const yearsOld = 2019 - parseInt(String(title.childNodes[0].textContent).split(' ')[0])
           const carBody = title.parentNode.parentNode.childNodes[2].firstElementChild.textContent
           const carTrans = title.parentNode.parentNode.childNodes[2].childNodes[1].textContent
           const carDrive = title.parentNode.parentNode.childNodes[2].childNodes[2].textContent
@@ -75,9 +78,10 @@ function Finder() {
           let Luxury = Math.floor(Math.random() * 1900) + 6900;
           let Ultra_Luxury = averageValue + Math.floor(Math.random() * 170300) + 91000
           let Porsche = Math.floor(Math.random() * 8000) + 14850
+          let priceofcar;
 
           const depreciation = (segment, rate) => {
-            segment = segment - ((segment * rate) * yearsOld);
+            priceofcar = segment * ((1 - rate) ** yearsOld);
           }
           const mutateStr = (amount) => {
             cost.innerHTML = `$${amount.toFixed(0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`
@@ -103,16 +107,16 @@ function Finder() {
           //Fast Depreciating performance segment
           if (this.Exotic_Cars.includes(carName)) {
             depreciation(exoticCar, 0.1155)
-            mutateStr(exoticCar)
+            mutateStr(priceofcar)
           //Porsche is different bc of the Cayanne
           } else if (carName.includes('Porsche')) {
             if (carModel.includes('Cayenne')) {
             depreciation(Porsche, 0.75)
-            mutateStr(Porsche)
+            mutateStr(priceofcar)
             } else {
             Porsche = Porsche + 62995
             depreciation(Porsche, 0.1155)
-            mutateStr(Porsche)
+            mutateStr(priceofcar)
             } 
           //Fast depreciating Luxury segment
           } else if (this.Luxury_Cars_Euro_Am.includes(carName)) {
@@ -121,26 +125,26 @@ function Finder() {
             Luxury = Luxury + 20000
             }
             handleTrimPremiums()
-            mutateStr(Luxury)
+            mutateStr(priceofcar)
           //Fast depreciating economy segment
           } else if (this.Eco_Dep_Fast.includes(carName)) {
             depreciation(ecoFast, 0.1155)
             handleTrimPremiums()
-            mutateStr(ecoFast)
+            mutateStr(priceofcar)
           //Slow depreciating Luxury segment
           } else if (this.Luxury_JDM.includes(carName)) {
-            depreciation(Luxury, 0.065)
+            depreciation(Luxury, 0.05)
             upCharges()
-            mutateStr(Luxury)
+            mutateStr(priceofcar)
           //Slow depreciating economy segment
           } else if (carName.includes('Rolls-Royce')) {
             depreciation(Ultra_Luxury, 0.1155)
-            mutateStr(Ultra_Luxury)
+            mutateStr(priceofcar)
           } else if (carName.includes('Bugatti')) {
             cost.innerHTML = '$2,000,000'
           } else {
-            depreciation(averageValue, 0.065)
-            mutateStr(averageValue)
+            depreciation(averageValue, 0.05)
+            mutateStr(priceofcar)
           }
       }
       }
@@ -330,6 +334,10 @@ function Finder() {
 
             $.getJSON(base_url, function(data) {
 
+              console.log(base_url)
+
+              console.log(data)
+
               i >= (years.length * makes.length * types.length) / 4 ? 
               lottie.current.childNodes[1].innerHTML = `${doneSVG} Done` : null;
 
@@ -506,9 +514,21 @@ function Finder() {
         arrayManager.placeArrays(types, smallest_Arr, smallest_Number)
         arrayManager.placeArrays(types, middle_Arr, middle_Number)
         arrayManager.placeArrays(types, biggest_Arr, biggest_Number)
+
+        if (years.length === 1) {
+          yearIndex = 0
+        } 
+
+        if (makes.length === 1) {
+          typeIndex = 0
+        } 
+
+        if (types.length === 1) {
+          makeIndex = 0
+        } 
       
         base_url = `https://www.carqueryapi.com/api/0.3/?callback=?&cmd=getTrims&year=${years[yearIndex]}&make=${makes[makeIndex]}&body=${types[typeIndex]}`
-       
+      
           }
           
         }
@@ -591,6 +611,19 @@ function Finder() {
             return
           }
           }
+
+          window.addEventListener('click', (e) => {
+            if (!e.target.closest('.btn-list') && ul.current.style.display === 'block') {
+              ul.current.style.display = 'none'
+            }
+          })
+
+          ul.current.style.display = 'none'
+
+          checkSaved(save1.current)
+          checkSaved(save2.current)
+          checkSaved(save3.current)
+
     }, [])
 
     //CarQuery object.
@@ -652,6 +685,10 @@ const saving = {
     saved: [],
     saveBtn: function(e) {
     if (e.target.textContent === 'Save') {
+      if (!cookies.access_token) {
+        showLoginModal()
+        return
+      }
       e.target.textContent = 'Saved!'
       e.target.style.backgroundColor = '#FF2547'
       const parent = e.target.closest(".parent-div")
@@ -664,8 +701,8 @@ const saving = {
       const drive = parent.childNodes[2].childNodes[2].textContent
       const payment = parent.childNodes[4].childNodes[1].childNodes[1].childNodes[1].textContent
       const months = parent.childNodes[4].childNodes[1].childNodes[0].childNodes[1].childNodes[1].value
-      li.innerHTML = `<div class='container-top'><h4>${car}</h4><h5>${price}</h5></div><p>${engine}</p>
-      <div class='vehicle-details'><p>${drive}</p><p>${body}</p><p>${trans}</p></div><p>${payment} for ${months} months</p><button class='remove-btn btn btn-danger'>Remove</button>`
+      li.innerHTML = `<div className='container-top'><h4 className="car-name">${car}</h4><h5>${price}</h5></div><p>${engine}</p>
+      <div class='vehicle-details'><p>${drive}</p><p>${body}</p><p>${trans}</p></div><p>${payment} for ${months} months</p><button className='remove-btn btn btn-danger'>Remove</button>`
       li.classList.add('saved-car')
       document.getElementById('cars-list').appendChild(li)
       if (payment === '') {
@@ -679,17 +716,24 @@ const saving = {
      }
     },
     savedSuggestion: function(e) {
+      if (!cookies.access_token) {
+        showLoginModal()
+        return
+      }
       const model = e.target.closest('.model').firstElementChild.textContent
       if (e.target.textContent === 'Save') {
       e.target.textContent = 'Saved!'
       e.target.style.backgroundColor = '#FF2547'
       const li = document.createElement('li')
-      const createText = (car, price, engine, drive, body, trans) => {
-        li.innerHTML = `<div class='container-top'><h4>${car}</h4><h5>${price}</h5></div><p>${engine}</p>
+      function createText (car, price, engine, drive, body, trans) {
+      li.innerHTML = `<div className='container-top'><h4>${car}</h4><h5>${price}</h5></div><p>${engine}</p>
       <div class='vehicle-details'><p>${drive}</p><p>${body}</p><p>${trans}</p></div><p></p><button class='remove-btn btn btn-danger'>Remove</button>`;
       li.classList.add('saved-car')
       document.getElementById('cars-list').appendChild(li)
+ 
+      saving.saveToDataBase(car, drive, engine, trans, body, price)
       }
+      
       switch(model) {
         case '2013 Porsche 911 Carrera 4S':
           createText('2013 Porsche 911 Carrera 4S', '$54,000', '3.6L I6', 'RWD', 'Coupe', 'PDK');
@@ -736,25 +780,16 @@ $('#cq-show-data').click(function(){
   carModelData.current.style.display = 'flex'
 } );
 
-function hideSavedCars(e) {
-  const sideBar = document.getElementById('saved-cars-container');
-  if (e.target !== sideBar && !e.target.closest('#saved-cars-container') &&
-   e.target.classList.contains('nav-link') == false &&
-  (sideBar.style.right !== '-20vw' || sideBar.style.right !== '-80vw') && e.target.textContent !== 'Remove' 
-  && e.target.textContent !== 'Saved!') {
-    if (window.innerWidth <= 440) {
-      sideBar.style.right = '-80vw';
-    } else {
-  sideBar.style.right = '-20vw';
-    }
-  } else {
-    return
-  }
+function hideCarSpecs(e) {
+  const sideBar = document.getElementById('car-model-data');
+  if (e.target !== sideBar && e.target !== document.getElementById('cq-show-data')) {
+    sideBar.style.display = 'none'
+  } 
 }
 
 useEffect(() => {
   document.body.addEventListener('click', (e) => {
-    hideSavedCars(e)
+    hideCarSpecs(e)
   })
 }, [])
 
@@ -780,36 +815,45 @@ DOMEvents.scrollTop();
 buttons.handleSearch();
 }
 
+useEffect(() => {
+if (tool === 'find') {
+  document.getElementById('get-specs').style.display = 'none'
+  document.getElementById('finder-section-content').style.display = 'block'
+} else {
+  document.getElementById('get-specs').style.display = 'block'
+  document.getElementById('finder-section-content').style.display = 'none'
+}
+}, [tool])
+
+function checkSaved(element) {
+  console.log(document.getElementsByClassName('container-top'))
+  for (let i = 0; i < document.getElementsByClassName('container-top').length; i++) {
+    const name =  document.getElementsByClassName('container-top')[i].childNodes[0]
+    if (name.textContent === element.getAttribute('name')) {
+      element.textContent = 'Saved!'
+      element.style.backgroundColor = '#FF2547'
+    }
+  }
+}
+
+function showLoginModal() {
+  const loginSection = document.getElementById('login-section');
+  if (loginSection.classList.contains('fadeOut')) {
+    loginSection.classList.remove('fadeOut')
+  }
+  loginSection.classList.add('fadeLogin');
+  loginSection.style.display = 'flex';
+  
+}
+
   return (
     <>
-    <section id="title" style={{ backgroundColor: 'whitesmoke' }}>
-          <div className="container-fluid" style={{ backgroundColor: 'whitesmoke' }}>
-            <nav className="navbar navbar-expand-lg navbar-dark">
-              <a className="navbar-brand">
-                {' '}
-                <h4 style={{ fontSize: '2rem' , color: '#ff4c68'}}>
-                  <b>tincar <FontAwesomeIcon icon={faFireFlameCurved} /></b>
-                </h4>
-              </a>
-              <ul className="bar1 navbar-nav ml-auto nav-style">
-                <li className="nav-item">
-                  <a className="nav-link" href="" style={{textDecoration: 'none'}}>
-                  <Link style={{color: '#ff4c68'}} to={'/'}>Home</Link>
-                  </a>
-                </li>
-                <li className="nav-item">
-                  <a className="nav-link" style={{color: '#ff4c68'}}>
-                  <SavedCars/>
-                  </a>
-                </li>
-               
-              </ul>
-              {/* navbar content  */}
-            </nav>
-          </div>
-    </section>
+    <Login/>
+    <Header/>
     <div ref={saving.sideBar}></div>
-    <section onClick={(e) => e.target.classList.contains("container-fluid") ? ul.current.style.display = 'none' : null} className="container-fluid finder-section" style={{backgroundImage: 'url("/carwallpaper.jpg")', backgroundPosition: "center"}}>
+    
+    <section onClick={(e) => e.target.classList.contains("container-fluid") ? ul.current.style.display = 'none' : null} className="container-fluid finder-section" style={{backgroundImage: 'url("/carwallpaper.jpg")'}}>
+    
     <div id='finder-section-content'>
         <h1 style={{color: 'white'}} className="display-6">
             Dream Car Finder
@@ -830,7 +874,47 @@ buttons.handleSearch();
     <ul className='freeform-ul'
      onClick={(e) => buttons.handleFilterClicks(e)} ref={ul}></ul>
     <button className='search-btn'  onClick={() => buttons.handleSearch()}>Search</button>
+    <p id="switch" onClick={() => {
+      setTool('get')
+    }}>Switch to get vehcile specs</p>
+    </div> 
+    
+    <div id="get-specs" className="container jumbotron"> 
+    <div><h1 style={{color: 'white'}}>Get Vehicle Specs</h1></div>
+    <div id="spec-select">
+    <div className="row text-center spec-categories">
+      <div className="col-sm-3 category">Year</div>
+      <div className="col-sm-3 category">Make</div>
+      <div className="col-sm-3 category">Model</div>
+      <div className="col-sm-3 category">Trim</div>
+      </div>
+      
+      <div className="row spec-inputs">
+        <div className="col-sm-3">
+          <select name="car-years" id="car-years" className="form-control"></select> 
+        </div>
+        <div className="col-sm-3">
+          <select name="car-makes" id="car-makes" className="form-control"></select> 
+        </div>
+        <div className="col-sm-3">
+          <select name="car-models" id="car-models" className="form-control"></select>    
+        </div>
+        <div className="col-sm-3">
+          <select name="car-model-trims" id="car-model-trims" className="form-control"></select> 
+        </div>
+      </div>
+      </div>
+    <br/>
+    <div className='bottom-specs-section'>
+    <input style={{color: 'white', fontWeight: '500', fontFamily: "Montserrat"}} className="btn btn-primary" id="cq-show-data" type="button" value="Show Data" 
+    onClick={() => document.getElementById('car-model-data').style.display = 'block'}/>
+    <p id="switch" onClick={() => {
+      setTool('find')
+    }} style={{marginTop: 0}}>Switch to dream car finder</p>
+      <div ref={carModelData} id="car-model-data"></div>
     </div>
+  </div>
+   
     </section>
     <section>
     <div id="lottie" ref={lottie}>
@@ -896,7 +980,9 @@ buttons.handleSearch();
             </div>
             </div>)}
         </div>
+    
     </section>
+ 
     <section className='results-and-ads'>
     <div className='ads'>
     <div className='finance-tool-info'>
@@ -1012,7 +1098,9 @@ buttons.handleSearch();
           <p>
             -TinCar
           </p>
-          <button>Learn More</button>
+          <button onClick={() => {
+            navigate('/blog')
+          }}>Learn More</button>
         </div>
       </div>
     </div>
@@ -1021,37 +1109,40 @@ buttons.handleSearch();
     <section className='models-you-may-like'>
     <hr style={{width: '50vw'}} />
     <h1 className='models-text'>Models You May Like</h1>
-   <div class='models-container'>
-    <div class='model'>
+   <div className='models-container'>
+    <div className='model'>
     <h4>2013 Porsche 911 Carrera 4S</h4>
-    <a className='line'></a>
+   
     <img src="/porche-car.jpg" alt="" />
     <span>
     <p>400 HP from a 3.6L I6</p>
     <p>Market Value: $54,000</p>
-    <button onClick={(e) => saving.savedSuggestion(e)}>Save</button>
+  
+    <button name="2013 Porsche 911 Carrera 4S" onClick={(e) => saving.savedSuggestion(e)} ref={save1}>Save</button>
     </span>
     </div>
 
-    <div class='model'>
+    <div className='model'>
       <h4>2013 BMW 4-Series Coupe</h4>
-      <a className='line'></a>
+     
       <img src="/bmw-car.jpg" alt="" />
     <span>
     <p>320 HP from a Twin Scrolled Turbo I6</p>
     <p>Market Value: $12,747</p>
-    <button onClick={(e) => saving.savedSuggestion(e)}>Save</button>
+    
+    <button name='2013 BMW 4-Series Coupe' onClick={(e) => saving.savedSuggestion(e)} ref={save2}>Save</button>
     </span>
     </div>
 
-    <div class='model'>
+    <div className='model'>
     <h4>2013 Toyota 4Runner</h4>
-    <a className='line'></a>
+   
     <img src="/4runner-car.jpg" alt="" />
     <span>
     <p>270 HP from a 4.0L V6</p>
     <p>Market Value: $16,431</p>
-    <button onClick={(e) => saving.savedSuggestion(e)}>Save</button>
+    <button name="2013 Toyota 4Runner" onClick={(e) => saving.savedSuggestion(e)} ref={save3}>
+      Save</button>
     </span>
     </div>
     </div>
@@ -1061,19 +1152,19 @@ buttons.handleSearch();
     <section className='news-widget'>
       <h1>Latest Car News From Our Experts</h1>
       <div className='news-widget-grid'>
-        <div className='news-widget-card'>
+        <div className='news-widget-card' onClick={() => navigate('/blog')}>
           <img src="/used-car-prices.jpg" alt="" />
           <h3 style={{fontSize: '1.4rem'}}>2023 Q4: Used Car Market Becoming Normal Again?</h3>
         </div>
-        <div className='news-widget-card'>
+        <div className='news-widget-card' onClick={() => navigate('/blog')}>
         <img src="/money-saved.jpg" alt="" />
           <h3>New Study Shows How Much Used Car Buyers Save</h3>
         </div>
-        <div className='news-widget-card'>
+        <div className='news-widget-card' onClick={() => navigate('/blog')}>
         <img src="/usedbmw-mercedes.jpg" alt="" />
           <h3>Which Is More Reliable? Used BMWs or Used Mercedes?</h3>
         </div>
-        <div className='news-widget-card'>
+        <div className='news-widget-card' onClick={() => navigate('/blog')}>
         <img src="/boxter.jpg" alt="" />
           <h3>Car Care Secrets: How this 40 year old from Kentucky Daily Drives a Porsche Boxer</h3>
         </div>
@@ -1092,81 +1183,7 @@ buttons.handleSearch();
     <h4><img src="/porsche-logo.png" alt="" />Porsche Coupe</h4>
     </div>
     </section>
-    <section className="container jumbotron"> 
-    <div><h1 style={{color: 'black'}} className="text-center">Get Vehicle Specs</h1></div>
-    <div className="row text-center spec-categories">
-      <div className="col-sm-3 category">Year</div>
-      <div className="col-sm-3 category">Make</div>
-      <div className="col-sm-3 category">Model</div>
-      <div className="col-sm-3 category">Trim</div>
-      </div>
-      <div className="row spec-inputs">
-        <div className="col-sm-3">
-          <select name="car-years" id="car-years" className="form-control"></select> 
-        </div>
-        <div className="col-sm-3">
-          <select name="car-makes" id="car-makes" className="form-control"></select> 
-        </div>
-        <div className="col-sm-3">
-          <select name="car-models" id="car-models" className="form-control"></select>    
-        </div>
-        <div className="col-sm-3">
-          <select name="car-model-trims" id="car-model-trims" className="form-control"></select> 
-        </div>
-      </div>
-    <br/>
-    <div className='bottom-specs-section'>
-    <input style={{color: 'white', fontWeight: '500', fontFamily: "Montserrat"}} className="btn btn-primary" id="cq-show-data" type="button" value="Show Data" 
-    />
-      <div ref={carModelData} id="car-model-data"></div>
-    </div>
-  </section>
-  <footer id="footer">
-    <div className='footer-top'>
-    <div className='join'>
-      <h3>Join TinCar</h3>
-      <p>Receive pricing, industry leading tools & more!</p>
-    <div className='sm-links'>
-      <p>Contact Us</p>
-      <p>Careers</p>
-      <p>Your Ad Choices</p>
-      <p>Privacy Statement</p>
-      <p>Visitor Agreement</p>
-      <p>Accessibility</p>
-      <p>Do Not Sell or Share My Personal Information</p>
-      <p>TinCar Information</p>
-      
-    </div>
-    </div>
-    <div className='footer-ads'>
-    <div className='footer-business-logos'>
-    <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 640 512"><path d="M640 317.9C640 409.2 600.6 466.4 529.7 466.4C467.1 466.4 433.9 431.8 372.8 329.8L341.4 277.2C333.1 264.7 326.9 253 320.2 242.2C300.1 276 273.1 325.2 273.1 325.2C206.1 441.8 168.5 466.4 116.2 466.4C43.42 466.4 0 409.1 0 320.5C0 177.5 79.78 42.4 183.9 42.4C234.1 42.4 277.7 67.08 328.7 131.9C365.8 81.8 406.8 42.4 459.3 42.4C558.4 42.4 640 168.1 640 317.9H640zM287.4 192.2C244.5 130.1 216.5 111.7 183 111.7C121.1 111.7 69.22 217.8 69.22 321.7C69.22 370.2 87.7 397.4 118.8 397.4C149 397.4 167.8 378.4 222 293.6C222 293.6 246.7 254.5 287.4 192.2V192.2zM531.2 397.4C563.4 397.4 578.1 369.9 578.1 322.5C578.1 198.3 523.8 97.08 454.9 97.08C421.7 97.08 393.8 123 360 175.1C369.4 188.9 379.1 204.1 389.3 220.5L426.8 282.9C485.5 377 500.3 397.4 531.2 397.4L531.2 397.4z"/></svg>
-    <svg xmlns="http://www.w3.org/2000/svg" height="16" width="15.5" viewBox="0 0 496 512"><path d="M496 256c0 137-111 248-248 248-25.6 0-50.2-3.9-73.4-11.1 10.1-16.5 25.2-43.5 30.8-65 3-11.6 15.4-59 15.4-59 8.1 15.4 31.7 28.5 56.8 28.5 74.8 0 128.7-68.8 128.7-154.3 0-81.9-66.9-143.2-152.9-143.2-107 0-163.9 71.8-163.9 150.1 0 36.4 19.4 81.7 50.3 96.1 4.7 2.2 7.2 1.2 8.3-3.3 .8-3.4 5-20.3 6.9-28.1 .6-2.5 .3-4.7-1.7-7.1-10.1-12.5-18.3-35.3-18.3-56.6 0-54.7 41.4-107.6 112-107.6 60.9 0 103.6 41.5 103.6 100.9 0 67.1-33.9 113.6-78 113.6-24.3 0-42.6-20.1-36.7-44.8 7-29.5 20.5-61.3 20.5-82.6 0-19-10.2-34.9-31.4-34.9-24.9 0-44.9 25.7-44.9 60.2 0 22 7.4 36.8 7.4 36.8s-24.5 103.8-29 123.2c-5 21.4-3 51.6-.9 71.2C65.4 450.9 0 361.1 0 256 0 119 111 8 248 8s248 111 248 248z"/></svg>
-    <svg xmlns="http://www.w3.org/2000/svg" height="16" width="18" viewBox="0 0 576 512"><path d="M549.7 124.1c-6.3-23.7-24.8-42.3-48.3-48.6C458.8 64 288 64 288 64S117.2 64 74.6 75.5c-23.5 6.3-42 24.9-48.3 48.6-11.4 42.9-11.4 132.3-11.4 132.3s0 89.4 11.4 132.3c6.3 23.7 24.8 41.5 48.3 47.8C117.2 448 288 448 288 448s170.8 0 213.4-11.5c23.5-6.3 42-24.2 48.3-47.8 11.4-42.9 11.4-132.3 11.4-132.3s0-89.4-11.4-132.3zm-317.5 213.5V175.2l142.7 81.2-142.7 81.2z"/></svg>
-    <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/></svg>
-    <svg xmlns="http://www.w3.org/2000/svg" height="16" width="14" viewBox="0 0 448 512"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
-    <svg xmlns="http://www.w3.org/2000/svg" height="16" width="14" viewBox="0 0 448 512"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg>
-    </div>
-    <p>Download the TinCar App</p>
-      <div className='download-on'>
-      <img src="/app-store.png" alt="" />
-      <img src="/google-play.png" alt="" />
-      </div>
-    </div>
-    </div>
-    <p className='privacy-notice'>© TinCar.com, Inc., a wholly owned subsidiary of NoCompany, Inc. By using TinCar.com, you consent to the monitoring and storing of your interactions with the website, including by a TinCar vendor, for use in improving and personalizing our services. See our Privacy Statement for details.</p>
-          <div className="row">
-            <div className="social-icons">
-              <p>
-              <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/></svg>&nbsp;&nbsp;
-              <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 640 512"><path d="M640 317.9C640 409.2 600.6 466.4 529.7 466.4C467.1 466.4 433.9 431.8 372.8 329.8L341.4 277.2C333.1 264.7 326.9 253 320.2 242.2C300.1 276 273.1 325.2 273.1 325.2C206.1 441.8 168.5 466.4 116.2 466.4C43.42 466.4 0 409.1 0 320.5C0 177.5 79.78 42.4 183.9 42.4C234.1 42.4 277.7 67.08 328.7 131.9C365.8 81.8 406.8 42.4 459.3 42.4C558.4 42.4 640 168.1 640 317.9H640zM287.4 192.2C244.5 130.1 216.5 111.7 183 111.7C121.1 111.7 69.22 217.8 69.22 321.7C69.22 370.2 87.7 397.4 118.8 397.4C149 397.4 167.8 378.4 222 293.6C222 293.6 246.7 254.5 287.4 192.2V192.2zM531.2 397.4C563.4 397.4 578.1 369.9 578.1 322.5C578.1 198.3 523.8 97.08 454.9 97.08C421.7 97.08 393.8 123 360 175.1C369.4 188.9 379.1 204.1 389.3 220.5L426.8 282.9C485.5 377 500.3 397.4 531.2 397.4L531.2 397.4z"/></svg> &nbsp;&nbsp;
-              <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg> &nbsp;&nbsp;
-              <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><path d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"/></svg>
-              </p>
-            </div>
-          </div>
-          <p className="copyright" style={{marginBottom: 0, paddingBottom: '1rem'}}>© Copyright 2023 TinCar</p>
-        </footer>
+  <Footer/>
 
     </>
   )
