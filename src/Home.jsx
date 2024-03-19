@@ -29,6 +29,7 @@ function App() {
 
     useEffect(() => {
     if (window.location.pathname === '/') {
+    
     window.addEventListener('scroll', (e) => {
       porsche.current.style.transform = `translateX(calc(${window.scrollY}px * 4))`
       const position = porsche.current.getBoundingClientRect().left
@@ -79,12 +80,17 @@ function App() {
     }
 
     function showLoginModal() {
+     
       const loginSection = document.getElementById('login-section');
       if (loginSection.classList.contains('fadeOut')) {
         loginSection.classList.remove('fadeOut')
       }
       loginSection.classList.add('fadeLogin');
       loginSection.style.display = 'flex';
+
+      if (document.getElementById('create-account').style.display !== 'none') {
+        document.getElementById('create-account').style.display = 'none'
+      }
       
     }
 

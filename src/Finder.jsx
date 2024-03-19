@@ -612,11 +612,13 @@ function Finder() {
           }
           }
 
+          if (window.location.pathname === '/find') {
           window.addEventListener('click', (e) => {
             if (!e.target.closest('.btn-list') && ul.current.style.display === 'block') {
               ul.current.style.display = 'none'
             }
           })
+        }
 
           ul.current.style.display = 'none'
 

@@ -134,12 +134,14 @@ h3 {
   font-weight: 800;
   font-size: 2.5rem;
   width: 90%;
+  text-align: left;
 }
 
 .who-we-are-info {
   color: gray;
   margin-bottom: 3rem;
   width: 90%;
+  text-align: left;
 }
 
 #who-we-are-cards div {
@@ -258,7 +260,6 @@ h3 {
 
 #flex-2 .flex-text {
   position: relative;
-  bottom: 4rem;
   margin-left: 5rem;
 }
 
@@ -700,6 +701,9 @@ color: white;
   padding-bottom: 20px;
 color: white;
 }
+.row .card {
+  padding: 0;
+}
 .card-body {
   text-align: center;
 }
@@ -1074,9 +1078,6 @@ cursor: pointer;
 
 @media screen and (max-width: 1400px) {
  
-  #register {
-    width: 100%;
-  }
   #login #login-form h2 {
     font-size: 1.7rem;
   }
@@ -1205,7 +1206,7 @@ position: relative;
 top: 3rem;
 }
 .sponsor {
-width: 15rem;
+width: 17rem;
 }
 
 }
@@ -1228,7 +1229,7 @@ width: 15rem;
   #achieve h1 {
     width: 90%;
   }
-  #awards {
+  #achieve hr {
     width: 90%;
   }
   #awards div p {

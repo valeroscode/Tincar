@@ -21,18 +21,7 @@ function Login () {
   const regPassword = useRef();
   const createAcc = useRef();
   const newHere = useRef();
-  
-  useEffect(() => {
-    function checkLoginModal() {
-    window.setInterval()
-    if (!cookies.access_token && !cookies.has_account) {
-    setTimeout(() => {
-      loginSec.current.style.display = 'flex'
-      loginSec.current.classList.add('fadeLogin')
-    }, 4000)
-  }
-  }
-  }, [])
+
 
   function loginModal(e) {
     e.target.closest('#login-section').classList.remove('fadeLogin')
@@ -93,6 +82,7 @@ function Login () {
   } 
 
   function showLogin(e) {
+    
     createAcc.current.classList.remove("fadeLogin");
     alreadyHave.current.classList.remove("fadeLogin");
     regContainer.current.classList.remove('slideIn');

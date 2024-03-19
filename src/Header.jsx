@@ -23,6 +23,7 @@ function Header() {
 
   useEffect(() => {
      window.addEventListener('click', (e) => {
+      if (e.target !== null) {
     
       if (e.target.closest('#nav-links') === null && e.target.closest("#navigation-toggle") === null) {
         if (window.innerWidth <= 500) {
@@ -35,6 +36,7 @@ function Header() {
       if (e.target.closest('saved-cars-container')) {
 
       }
+    }
      })
   }, [])
 

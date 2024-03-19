@@ -74,12 +74,14 @@ useEffect(() => {
       })
       slideLeftObserver.observe(jobFinderText.current)
 
+      if (window.location.pathname === 'careers') {
       window.addEventListener('click', (e) => {
 
         if (jobDetails.current.style.right === '0px' && e.target.closest("#job-details") === null && e.target.closest(".job-listing") === null) {
            jobDetails.current.style.right = '-60rem'
         }
       })
+    }
 
       window.scrollTo({
         top: 0,
@@ -198,11 +200,11 @@ function hideJobDetails(e) {
                 <h6>LOCATION ({filterArr.location})</h6>
                 <button>▼</button>
             </div>
-            <div className='dropdown-list' style={{display: "none"}}>
+            <div className='dropdown-list' key='parent' style={{display: "none"}}>
             {
                 
-                locations.map((value) => <div className='DD-item'>
-                    <input type="checkbox" name='location' onClick={(e) => {
+                locations.map((value, index) => <div key={'d' + index} className='DD-item'>
+                    <input key={'i' + index} type="checkbox" name='location' onClick={(e) => {
                         if (e.target.checked) {
                             filterArr.location++
                             setFilterArr(filterArr)
@@ -212,7 +214,7 @@ function hideJobDetails(e) {
                         }
                         handleFiltering(e, e.target.getAttribute('name'))
                         }} />
-                    <p>{value}</p>
+                    <p key={'P' + index}>{value}</p>
                 </div>
                 )
             }
