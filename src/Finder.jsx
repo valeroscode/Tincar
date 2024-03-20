@@ -752,7 +752,7 @@ const saving = {
       }
     },
     saveToDataBase: async function(car_name, drive, engine, trans, body, price) {
-      fetch(`http://localhost:3000/auth/updateCars/${localStorage.getItem('userID')}`, {
+      fetch(`https://tincar.onrender.com/auth/updateCars/${localStorage.getItem('userID')}`, {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({

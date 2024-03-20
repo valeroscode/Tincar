@@ -33,7 +33,7 @@ function Login () {
 
   function handleLogin(username, password) {
     if (username !== '' && password !== '') {
-    fetch(`http://localhost:3000/auth/login`, {
+    fetch(`https://tincar.onrender.com/auth/login`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -58,7 +58,7 @@ function Login () {
 
   function handleSignUp() {
     if (regName.current.value !== '' && regUsername.current.value !== '' && regPassword.current.value !== '') {
-    fetch(`http://localhost:3000/auth/register`, {
+    fetch(`https://tincar.onrender.com/auth/register`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

@@ -56,7 +56,7 @@ function App() {
 
     function callStripe(e, id) {
       if (cookies.access_token) {
-      fetch('http://localhost:3000/create-checkout-session', {
+      fetch('https://tincar.onrender.com/create-checkout-session', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
