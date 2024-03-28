@@ -3,8 +3,7 @@ const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 const { UserModel, CarModel } = require("../models/models.js");
 
-const router = express.Router();
-
+export const router = express.Router();
 
 router.post("/register", async (req, res) => {
   const { name, username, password } = req.body;
