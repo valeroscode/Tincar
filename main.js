@@ -5,12 +5,12 @@ import "dotenv/config";
 import path from "path";
 import { fileURLToPath } from "url";
 import { router } from "./routes/users.js";
+import Stripe from "stripe";
 mongoose.set("strictQuery", false);
 
 const PORT = process.env.PORT || 5173;
 
 const app = express();
-require("dotenv").config();
 
 app.use(express.json());
 app.use(express.static("public"));
@@ -27,7 +27,7 @@ app.get("*", (req, res) => {
 });
 
 //STRIPE API BACKEND LOGIC
-const stripe = require("stripe")(process.env.STRIPE_API_KEY);
+const stripe = new Stripe(process.env.STRIPE_API_KEY);
 
 const subTiers = new Map([
   [1, { priceInCents: 1000, name: "PT Cruiser | Subscription Tier 1" }],

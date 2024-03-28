@@ -1,7 +1,7 @@
-const express = require("express");
-const jwt = require("jsonwebtoken");
-const bcrypt = require("bcrypt");
-const { UserModel, CarModel } = require("../models/models.js");
+import express from "express";
+import jwt from "jsonwebtoken";
+import bcrypt from "bcrypt";
+import { UserModel, CarModel } from "../models/models.js";
 
 export const router = express.Router();
 
