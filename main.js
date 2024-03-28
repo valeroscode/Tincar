@@ -4,7 +4,7 @@ import cors from "cors";
 import "dotenv/config";
 import path from "path";
 import { fileURLToPath } from "url";
-import { router } from "./routes/users";
+import { router } from "./routes/users.js";
 mongoose.set("strictQuery", false);
 
 const PORT = process.env.PORT || 5173;
