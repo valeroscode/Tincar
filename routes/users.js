@@ -1,7 +1,8 @@
 import express from "express";
 import jwt from "jsonwebtoken";
-import bcrypt from "bcrypt";
-import { UserModel, CarModel } from "../models/models.js";
+import bcrypt from "bcryptjs";
+
+import { UserModel, BlogModel } from "../models/models.js";
 
 export const router = express.Router();
 
@@ -51,6 +52,17 @@ router.get("/getCars/:id", async (req, res) => {
     const findUser = await UserModel.findById(id);
     res.json({
       data: findUser,
+    });
+  } catch (err) {
+    console.error(err);
+  }
+});
+
+router.get("/getPosts", async (req, res) => {
+  try {
+    const all = await BlogModel.find();
+    res.json({
+      data: all,
     });
   } catch (err) {
     console.error(err);

@@ -17,5 +17,15 @@ const UserSchema = new mongoose.Schema({
   cars: [carSchema],
 });
 
+const blogSchema = new mongoose.Schema({
+  title: { type: String, required: true },
+  description: { type: String, required: true },
+  author: { type: String, required: true },
+  date: { type: String, required: true },
+  category: { type: String, required: true },
+  image: { type: String, required: true },
+});
+
 export const UserModel = mongoose.model("users", UserSchema);
 export const CarModel = mongoose.model("cars", carSchema);
+export const BlogModel = mongoose.model("blog", blogSchema);
