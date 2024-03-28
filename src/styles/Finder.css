@@ -52,7 +52,7 @@ overflow-x: hidden;
   font-weight: 800;
   margin-left: 0;
   
-}
+} 
 
 #navigation a {
   text-decoration: none;
@@ -222,7 +222,7 @@ border-radius: 15px;
 .results-and-ads .finance-tool-info {
 background-color: whitesmoke;
 padding: 2rem;
-border-radius: 7px;
+border-radius: 15px;
 }
 
 .results-and-ads div .avaliable {
@@ -1614,6 +1614,7 @@ bottom: 0;
 border-radius: 10px;
 height: 100%;
 top: 0;
+left: 0;
 }
 .clickable-picks .clickable-ads h4 {
 font-size: 0.9rem;
@@ -1673,6 +1674,10 @@ transition: all 0.5s ease;
 }
 
 @media screen and (max-width: 492px) {
+.privacy-notice {
+  margin: 1rem;
+  text-align: left;
+}
 .models-you-may-like div img {
 height: 12rem;
 min-width: 20rem;
@@ -1695,9 +1700,19 @@ width: 70%;
   right: -100vw;
   width: 80vw;
 }
-.models-container div span {
-  height: 75%;
+.news-widget-card img {
+  opacity: 0;
 }
+.news-widget-card h3 {
+  font-size: 1.4rem;
+  text-decoration: underline;
+}
+.footer-top {
+  margin: 0 5vw;
+}
+.models-container div span p:first-child {
+  margin-top: 1rem;
+  }
 #filtered-car-data {
   margin: 0 0.5rem;
   display: flex;

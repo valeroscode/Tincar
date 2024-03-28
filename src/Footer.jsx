@@ -4,7 +4,7 @@ import './styles/Finder.css'
 function Footer () {
   return (
     <>
-    <footer id="footer">
+    <footer id="footer" style={window.location.pathname === '/' ? {marginTop: 0} : null}>
     <div className='footer-top'>
     <div className='join'>
       <h3>Join TinCar</h3>

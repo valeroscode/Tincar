@@ -35,7 +35,7 @@ function Login () {
 
   function handleLogin(username, password) {
     if (username !== '' && password !== '') {
-    fetch(`https://tincar.onrender.com/auth/login`, {
+    fetch(`https://tincar-c64x.onrender.com/auth/login`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

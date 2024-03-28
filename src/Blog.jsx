@@ -15,7 +15,7 @@ function Blog () {
   const noMatches = useRef()
 
   useEffect(() => {
-    fetch(`http://localhost:5173/auth/getPosts`, {
+    fetch(`https://tincar-c64x.onrender.com/auth/getPosts`, {
       headers: {'Content-Type': 'application/json'},
       }).then(res => {
       if (res.ok) return res.json()

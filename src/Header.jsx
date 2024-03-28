@@ -76,9 +76,9 @@ function Header() {
           }
           <div id="nav-links" ref={navLinks}>
           {window.location.pathname !== '/' ? <Link to="/"><p className='p'>Home</p></Link> : null}
-          {window.location.pathname !== "/find" ? <Link to="/find"><p className='p' style={window.location.pathname === '/' ? {color: 'white'} : null}>Find A Car</p></Link> : null}
-          {window.location.pathname !== "/blog" ? <Link to="/blog"><p className='p' style={window.location.pathname === '/' ? {color: 'white'} : null}>Blog</p></Link> : null}
-          {window.location.pathname !== "/careers" ? <Link to="/careers"><p className='p' style={window.location.pathname === '/' ? {color: 'white'} : null}>Careers</p></Link> : null}
+          {window.location.pathname !== "/find" ? <Link to="/find"><p className='p' style={window.location.pathname === '/' && window.innerWidth > 526 ? {color: 'white'} : null}>Find A Car</p></Link> : null}
+          {window.location.pathname !== "/blog" ? <Link to="/blog"><p className='p' style={window.location.pathname === '/' && window.innerWidth > 526 ? {color: 'white'} : null}>Blog</p></Link> : null}
+          {window.location.pathname !== "/careers" ? <Link to="/careers"><p className='p' style={window.location.pathname === '/' && window.innerWidth > 526 ? {color: 'white'} : null}>Careers</p></Link> : null}
           {!cookies.access_token ? 
           <div id="account-btns">
           <button id="sign-up-btn" onClick={() => {

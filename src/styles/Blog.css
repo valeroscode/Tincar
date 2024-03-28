@@ -98,6 +98,7 @@
 
 #blog-searchbar input {
     outline: none;
+    width: 90%;
 }
 
 #blog-searchbar button {
@@ -259,6 +260,17 @@ opacity: 0.95;
     }
     #blog-searchbar {
         width: 100%;
+    }
+}
+
+@media screen and (max-width: 492px) {
+    #blog-ad {
+        margin-top: 0;
+    }
+
+    #blog-navigation {
+        position: relative;
+        bottom: 3rem;
     }
 }
 

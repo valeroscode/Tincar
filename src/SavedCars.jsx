@@ -44,8 +44,8 @@ function SavedCars() {
       const sideBar = document.getElementById('saved-cars-container');
       if (e.target !== sideBar && !e.target.closest('#saved-cars-container') &&
        e.target.classList.contains('nav-link') == false &&
-       (sideBar.style.right !== '-30vw' || sideBar.style.right !== '-80vw')) {
-        if (window.innerWidth <= 440) {
+       (sideBar.style.right !== '-30vw' || sideBar.style.right !== '-80vw' ||  sideBar.style.right !== '-100vw')) {
+        if (window.innerWidth <= 498) {
           sideBar.style.right = '-100vw';
         } else {
         sideBar.style.right = '-30vw';
@@ -78,7 +78,7 @@ function SavedCars() {
       }
         e.target.closest('.saved-car').remove()
 
-        fetch(`http://localhost:5173/auth/removeCar`, {
+        fetch(`https://tincar-c64x.onrender.com/auth/removeCar`, {
           method: 'POST',
           headers: {'Content-Type': 'application/json'},
           body: JSON.stringify({

@@ -30,6 +30,7 @@ z-index: 1;
     display: flex;
     align-items: flex-end;
     position: relative;
+    text-align: left;
     top: 7rem;
     background: rgb(255,76,104);
 background: linear-gradient(90deg, rgba(255,76,104,1) 0%, rgba(255,87,113,1) 17%, rgba(255,103,126,1) 34%, rgba(255,133,152,1) 49%, rgba(255,173,186,1) 73%, rgba(255,198,207,1) 84%, rgba(255,233,237,1) 100%);
@@ -64,6 +65,7 @@ background: linear-gradient(90deg, rgba(255,76,104,1) 0%, rgba(255,87,113,1) 17%
 }
 
 #careers-background-img {
+    filter: grayscale(40%);
     width: 100%;
     position: relative;
     top: 0;
@@ -412,10 +414,38 @@ padding-bottom: 5rem;
     #search-results {
         margin: 1rem 1rem;
     }
+
+    #careers-image h1 {
+        top: -20rem;
+    }
 }
 
 @media screen and (max-width: 450px) {
+    #careers-image h1 {
+        font-size: 2.7rem;
+        top: -12rem;
+        left: 1rem;
+        text-align: left;
+    }
+    #careers-image {
+        height: unset;
+    } 
 
+    #job-finder {
+        top: 2rem;
+    }
+
+    #careers-text-div {
+        position: relative;
+        bottom: 3rem;
+        margin: 0 1rem;
+    }
+    #careers-text-div h1 {
+        font-size: 2rem;
+    }
+    #careers-background-img {
+        height: 20rem;
+    }
     .join-us {
         font-size: 2rem;
     }
@@ -428,16 +458,34 @@ padding-bottom: 5rem;
         left: 1rem;
     }
 
+    #find-career-section {
+        top: 3rem;
+    }
+
     #find-career-section h3 {
-        margin-left: 1rem;
+        margin-left: 0rem;
     }
 
     #career-selection-modal {
-        margin: 0 0.5rem;
+        margin: 0;
+        flex-direction: column;
+    }
+
+    #career-selection-modal li {
+        margin-bottom: 0.5rem;
+        width: 100%;
+    }
+
+    .dropdown-list {
+        z-index: 9999999;
     }
 
     #search-results {
-        margin: 3rem 1rem;
+        margin: 1rem 0.5rem;
+    }
+
+    #career-selection-modal li {
+        margin-left: 0;
     }
 
     #search-results .job-listing {

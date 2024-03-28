@@ -1117,7 +1117,7 @@ function showLoginModal() {
    
     <img src="/porche-car.jpg"  alt="" />
     <span>
-    <p>400 HP from a 3.6L I6</p>
+    <p className='span-text'>400 HP from a 3.6L I6</p>
     <p>Market Value: $54,000</p>
   
     <button name="2013 Porsche 911 Carrera 4S" onClick={(e) => saving.savedSuggestion(e)} ref={save1}>Save</button>
@@ -1129,7 +1129,7 @@ function showLoginModal() {
      
       <img src="/bmw-car.jpg" alt="" />
     <span>
-    <p>320 HP from a Twin Scrolled Turbo I6</p>
+    <p className='span-text'>320 HP from a Twin Scrolled Turbo I6</p>
     <p>Market Value: $12,747</p>
     
     <button name='2013 BMW 4-Series Coupe' onClick={(e) => saving.savedSuggestion(e)} ref={save2}>Save</button>
@@ -1141,7 +1141,7 @@ function showLoginModal() {
    
     <img src="/4runner-car.jpg" alt="" />
     <span>
-    <p>270 HP from a 4.0L V6</p>
+    <p className='span-text'>270 HP from a 4.0L V6</p>
     <p>Market Value: $16,431</p>
     <button name="2013 Toyota 4Runner" onClick={(e) => saving.savedSuggestion(e)} ref={save3}>
       Save</button>

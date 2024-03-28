@@ -124,7 +124,7 @@ observer.observe(num3.current)
 
     function callStripe(e, id) {
       if (cookies.access_token) {
-      fetch('http://localhost:5173/create-checkout-session', {
+      fetch('https://tincar-c64x.onrender.com/create-checkout-session', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
