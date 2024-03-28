@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import './styles/Home.css'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleCheck, faBullseye, faHeart, faFireFlameCurved  } from "@fortawesome/free-solid-svg-icons";
@@ -15,6 +15,8 @@ function Login () {
   const loginContainer = useRef();
   const regContainer = useRef();
   const [cookies, setCookies] = useCookies(["access_token", "has_account"])
+
+  const [activeForm, setActiveForm] = useState('login')
 
   const regName = useRef();
   const regUsername = useRef();
@@ -58,7 +60,7 @@ function Login () {
 
   function handleSignUp() {
     if (regName.current.value !== '' && regUsername.current.value !== '' && regPassword.current.value !== '') {
-    fetch(`https://tincar.onrender.com/auth/register`, {
+    fetch(`http://localhost:5173/auth/register`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -80,9 +82,31 @@ function Login () {
     alert('all fields must be filled')
   }
   } 
+  
+  // useEffect(() => {
+  //   if (activeForm === 'login') {
+  //     loginForm.current.style.display = 'flex'
+  //     newHere.current.style.display = 'flex'
+  //     createAcc.current.style.display = 'none';
+  //     setTimeout(() => {
+  //       loginForm.current.classList.add("fadeLogin");
+  //       newHere.current.classList.add("fadeLogin")
+  //       alreadyHave.current.style.display = 'none'
+  //     }, 600)
+  //   } else {
+  //     createAcc.current.style.display = 'flex';
+  //     alreadyHave.current.style.display = 'flex'
+  //     loginForm.current.style.display = 'none'
+  //     newHere.current.style.display = 'none'
+  //     setTimeout(() => {
+  //       createAcc.current.classList.add("fadeLogin");
+  //       alreadyHave.current.classList.add("fadeLogin")
+  //     }, 600)
+  //   }
+  // }, [activeForm])
 
   function showLogin(e) {
-    
+    console.log('login')
     createAcc.current.classList.remove("fadeLogin");
     alreadyHave.current.classList.remove("fadeLogin");
     regContainer.current.classList.remove('slideIn');
@@ -101,6 +125,7 @@ function Login () {
   }
 
   function showSignUp(e) {
+    console.log('sign up')
     newHere.current.style.display = 'none'
     loginForm.current.style.display = 'none'
     loginForm.current.style.opacity = 0;
@@ -114,7 +139,7 @@ function Login () {
     }
     regContainer.current.classList.add('slideIn');
     createAcc.current.style.display = 'flex';
-alreadyHave.current.style.display = 'flex'
+    alreadyHave.current.style.display = 'flex'
         setTimeout(() => {
       createAcc.current.classList.add("fadeLogin");
       alreadyHave.current.classList.add("fadeLogin")

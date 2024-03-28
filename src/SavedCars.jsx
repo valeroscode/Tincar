@@ -17,7 +17,7 @@ function SavedCars() {
     useEffect(() => {
     
       async function getCars() { 
-      fetch(`https://tincar.onrender.com/auth/getCars/${localStorage.getItem('userID')}`, {
+      fetch(`http://localhost:5173/auth/getCars/${localStorage.getItem('userID')}`, {
         method: 'GET',
         headers: {'Content-Type': 'application/json'},
       }).then(res => {
@@ -78,7 +78,7 @@ function SavedCars() {
       }
         e.target.closest('.saved-car').remove()
 
-        fetch(`https://tincar.onrender.com/auth/removeCar`, {
+        fetch(`http://localhost:5173/auth/removeCar`, {
           method: 'POST',
           headers: {'Content-Type': 'application/json'},
           body: JSON.stringify({

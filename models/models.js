@@ -17,7 +17,6 @@ const UserSchema = new mongoose.Schema({
   cars: [carSchema],
 });
 
-module.exports = {
-  UserModel: mongoose.model("users", UserSchema),
-  CarModel: mongoose.model("cars", carSchema),
-};
+
+  export const UserModel = mongoose.model("users", UserSchema);
+  export const CarModel = mongoose.model("cars", carSchema);

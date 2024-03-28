@@ -7,10 +7,13 @@ import SavedCars from './SavedCars'
 import Login from './login'
 import { useCookies } from 'react-cookie';
 import Footer from './Footer';
+import Header from './Header';
 
 function App() {
 
-  const [activeForm, setActiveForm] = useState('login')
+  const num1 = useRef();
+  const num2 = useRef();
+  const num3 = useRef();
 
     const firstTest = useRef();
     const lastTest = useRef();
@@ -31,8 +34,14 @@ function App() {
     if (window.location.pathname === '/') {
     
     window.addEventListener('scroll', (e) => {
+      if (window.innerWidth <= 550) {
+        porsche.current.style.transform = `translateX(calc(${window.scrollY}px))`
+      } else {
       porsche.current.style.transform = `translateX(calc(${window.scrollY}px * 4))`
+      }
       const position = porsche.current.getBoundingClientRect().left
+
+      if (window.innerWidth > 550) {
      if (position >= 43 && position < 100) {
         easy.current.style.transform = 'scale(1.4)'
         setTimeout(() => {
@@ -49,14 +58,73 @@ function App() {
         heart.current.style.transform = 'scale(1)'
       }, 400)
     }
+  } else if (window.innerWidth <= 550) {
+    if (position >= 43 && position < 100) {
+      easy.current.style.transform = 'scale(1.4)'
+      setTimeout(() => {
+      easy.current.style.transform = 'scale(1)'
+    }, 400)
+  } else if (position >= 264 && position < 400) {
+    bullseye.current.style.transform = 'scale(1.4)'
+      setTimeout(() => {
+      bullseye.current.style.transform = 'scale(1)'
+    }, 400)
+  } else if (position >= 550 && position < 900) {
+    heart.current.style.transform = 'scale(1.4)'
+      setTimeout(() => {
+      heart.current.style.transform = 'scale(1)'
+    }, 400)
+  }
+  } 
       
     })
   }
+
+  const observerBars = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.style.width = `${entry.target.getAttribute('max')}%`
+        } else {
+            entry.target.style.width = '50%'
+        }
+    })
+})
+
+for (let i = 0; i < document.getElementsByClassName('colored-div').length; i++) {
+observerBars.observe(document.getElementsByClassName('colored-div')[i])
+console.log(document.getElementsByClassName('colored-div')[i])
+}
+
+  const observer = new IntersectionObserver(entries => {
+    let num = 50
+    setTimeout(() => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            function reportStats() {
+                if (entry.target.getAttribute('max') < num) {
+                    return
+                } else {
+                    setTimeout(() => {
+                        entry.target.textContent = `${num}%`
+                        num++
+                        reportStats()
+                    }, 20)
+                }
+            }
+            reportStats()
+        }
+    })
+}, 200)
+})
+
+observer.observe(num1.current)
+observer.observe(num2.current)
+observer.observe(num3.current)
 }, [])
 
     function callStripe(e, id) {
       if (cookies.access_token) {
-      fetch('https://tincar.onrender.com/create-checkout-session', {
+      fetch('http://localhost:5173/create-checkout-session', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -104,60 +172,9 @@ function App() {
   return (
     <>
     <Login/>
+    
         <section id="title">
-          <div className="container-fluid" style={{ backgroundColor: '#ff4c68' }}>
-            {/* Nav Bar */}
-            <nav className="navbar navbar-expand-lg navbar-dark">
-              <a className="navbar-brand">
-                {' '}
-                <h4 style={{ fontSize: '2rem' }}>
-                  <b>tincar <FontAwesomeIcon icon={faFireFlameCurved} /></b>
-                </h4>
-              </a>
-              <Link to={'/find'}><button id="find-car">Find A Car</button></Link>
-              <Link to={'/Blog'}><button id="careers-btn">Blog</button></Link>
-              <Link to={'/careers'}><button id="careers-btn">Careers</button></Link>
-              <ul className="bar1 navbar-nav ml-auto" style={{flexDirection: 'row'}}>
-               
-                <li className="nav-item">
-
-                {
-                  cookies.access_token ? <SavedCars/> : 
-                  <div>
-                  <button id="sign-up-btn" onClick={() => {
-                    showLoginModal()
-                    if (activeForm === 'login') {
-                    setTimeout(() => {
-                     document.getElementById('signup-btn').click()
-                    setActiveForm('signup')
-                    }, 100)
-                    }
-                    }}>
-                    Sign Up
-                  </button>
-                  <button id='logIn-Btn'
-                  onClick={() => {
-                    showLoginModal()
-                    if (activeForm === 'signup') {
-                      setTimeout(() => {
-                        document.getElementById('already-have-btn').click()
-                        setActiveForm('login')
-                      }, 100)
-                    }
-                    }}>Log In</button>
-                  </div>
-                }
-                  
-                </li>
-                <li className="nav-item">
-                  {
-                    cookies.access_token ? <div id="account"><p className='name-of-user'>Hello, {localStorage.getItem('name')} 👋</p><button onClick={() => logOut()}>Log Out</button></div> : null
-                  }
-                </li>
-             
-              </ul>
-            </nav>
-          </div>
+        <Header/> 
           {/* Title */}
           <div className='title-container'>
           <div className="title-page col-lg-6">
@@ -173,6 +190,7 @@ function App() {
           </div>
           </div>
         </section>
+         
         {/* Features */}
         <section id="features">
           <div className="row">
@@ -235,8 +253,8 @@ function App() {
         
         <section id="dont-settle">
           <div id="dont-settle-left">
-              <img src="dontsettle2.jpg"></img>
-              <img src="dontsettle1.jpg"></img>
+              <img src="dontsettle2.jpg" loading='lazy'></img>
+              <img src="dontsettle1.jpg" loading='lazy'></img>
           </div>
 
           <div id="dont-settle-right">
@@ -270,7 +288,7 @@ function App() {
             </div>
 
             <div className='flex-media'>
-                <img src='moreinfocars.jpg'></img>
+                <img src='moreinfocars.jpg' loading='lazy'></img>
                 <div className='flex-media-info-block'>
                 <FontAwesomeIcon icon={faStar} style={{color: "#ffffff",}} />
                   <div>
@@ -296,7 +314,7 @@ function App() {
           </div>
 
           <div className='flex-media'>
-          <img src='moreinfocars.jpg'></img>
+          <img src='moreinfocars.jpg' loading='lazy'></img>
                 <div className='flex-media-info-block-2'>
                 <FontAwesomeIcon icon={faCar} style={{color: "#ffffff",}} />
                   <div>
@@ -334,25 +352,25 @@ function App() {
               <div id="stats">
                   <div className='stat'>
                     <div className='background-div'></div>
-                    <div className='colored-div' style={{width:'98%'}}>
+                    <div className='colored-div' style={{width:'50%'}} max="98">
                       <p>Customer Satisfaction</p>
-                      <p>98%</p>
+                      <p ref={num1} max="98">98%</p>
                     </div>
                   </div>
 
                   <div className='stat'>
                   <div className='background-div'></div>
-                  <div className='colored-div' style={{width:'80%'}}>
+                  <div className='colored-div' style={{width:'50%'}} max="80">
                   <p>Take only 1 week to find a car</p>
-                  <p>80%</p>
+                  <p ref={num2} max="80">80%</p>
                   </div>
                   </div>
 
                   <div className='stat'>
                   <div className='background-div'></div>
-                  <div className='colored-div' style={{width:'80%'}}>
+                  <div className='colored-div' style={{width:'50%'}} max="80">
                   <p>Take only 1 week to find a car</p>
-                  <p>80%</p>
+                  <p ref={num3} max="80">80%</p>
                   </div>
                   </div>
               </div>
@@ -361,21 +379,21 @@ function App() {
 
         <section id="links">
           <div className='links-div'>
-            <img src='blog.jpg'></img>
+            <img src='blog.jpg' loading='lazy'></img>
             <div>
             <h3>Blog</h3>
             <Link to="/Blog"><button>See Blog</button></Link>
             </div>
           </div>
           <div className='links-div'>
-          <img src='handshake.jpg'></img>
+          <img src='handshake.jpg' loading='lazy'></img>
           <div>
             <h3>Carrers</h3>
             <Link to="/Careers"><button>See Careers</button></Link>
             </div>
           </div>
           <div className='links-div'>
-          <img src='carfinder.jpg'></img>
+          <img src='carfinder.jpg' loading='lazy'></img>
           <div>
             <h3>Car Finder</h3>
             <Link to="/Find"><button>Find A Car</button></Link>

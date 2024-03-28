@@ -47,6 +47,10 @@ function Header() {
     }
     loginSection.classList.add('fadeLogin');
     loginSection.style.display = 'flex';
+
+    if (document.getElementById('create-account').style.display !== 'none') {
+      document.getElementById('create-account').style.display = 'none'
+    }
     
   }
 
@@ -60,20 +64,21 @@ function Header() {
   return (
     <>
     <Login/>
-    <section id="navigation" style={{ backgroundColor: 'whitesmoke' }}>
+    <section id="navigation" style={ window.location.pathname === '/' ? {backgroundColor: '#ff4c68', marginLeft: '-1.5rem'} : {backgroundColor: 'whitesmoke'}}>
       
         
-          <h1>tincar</h1>
-          <FontAwesomeIcon icon={faFireFlameCurved} color='#ff4c68' />
+          <Link to='/'><h1 style={ window.location.pathname === '/' ? {color: 'white'} : {color: '#ff4c68'}}
+          >tincar</h1></Link>
+          <FontAwesomeIcon icon={faFireFlameCurved} color={window.location.pathname === '/' ? '#ffffff' : '#ff4c68'} />
           {
-            window.innerWidth <= 526 ? <FontAwesomeIcon id="navigation-toggle" icon={faBars} color='#ff4c68' 
+            window.innerWidth <= 526 ? <FontAwesomeIcon id="navigation-toggle" icon={faBars} color={window.location.pathname === '/' ? '#ffffff' : '#ff4c68'}
             onClick={() => toggleNav()} /> : null
           }
           <div id="nav-links" ref={navLinks}>
-          <Link to="/"><p className='p'>Home</p></Link>
-          {window.location.pathname !== "/find" ? <Link to="/find"><p className='p'>Find A Car</p></Link> : null}
-          {window.location.pathname !== "/blog" ? <Link to="/blog"><p className='p'>Blog</p></Link> : null}
-          {window.location.pathname !== "/careers" ? <Link to="/careers"><p className='p'>Careers</p></Link> : null}
+          {window.location.pathname !== '/' ? <Link to="/"><p className='p'>Home</p></Link> : null}
+          {window.location.pathname !== "/find" ? <Link to="/find"><p className='p' style={window.location.pathname === '/' ? {color: 'white'} : null}>Find A Car</p></Link> : null}
+          {window.location.pathname !== "/blog" ? <Link to="/blog"><p className='p' style={window.location.pathname === '/' ? {color: 'white'} : null}>Blog</p></Link> : null}
+          {window.location.pathname !== "/careers" ? <Link to="/careers"><p className='p' style={window.location.pathname === '/' ? {color: 'white'} : null}>Careers</p></Link> : null}
           {!cookies.access_token ? 
           <div id="account-btns">
           <button id="sign-up-btn" onClick={() => {

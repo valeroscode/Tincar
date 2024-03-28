@@ -626,9 +626,7 @@ function Finder() {
           checkSaved(save2.current)
           checkSaved(save3.current)
 
-    }, [])
-
-    //CarQuery object.
+          //CarQuery object.
     var carquery = new CarQuery();
     //Run the carquery init function to get things started:
     carquery.init();
@@ -675,6 +673,8 @@ function Finder() {
     }); 
     carquery.initSearchInterface(searchArgs);
     $('#cq-search-btn').click( function(){ carquery.search(); } );
+
+    }, [])
 
     const DOMEvents = {
         scrollTop: function() {
@@ -752,7 +752,7 @@ const saving = {
       }
     },
     saveToDataBase: async function(car_name, drive, engine, trans, body, price) {
-      fetch(`https://tincar.onrender.com/auth/updateCars/${localStorage.getItem('userID')}`, {
+      fetch(`http://localhost:5173/auth/updateCars/${localStorage.getItem('userID')}`, {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({
@@ -1021,7 +1021,7 @@ function showLoginModal() {
     <h1 className='supp-brands'>Supported Brands</h1>
     <div ref={brands} className='brands' data-direction="left" data-speed="slow">
     <div ref={scroller} className='scroller'>
-      <img src="/Acura.png" alt="" />
+      <img src="/Acura.png" alt=""  />
       <img src="/Toyota-logo.png" alt="" />
       <img src="/honda-logo.png" alt="" />
       <img src="/mazda-logo.png" alt="" />
@@ -1057,21 +1057,21 @@ function showLoginModal() {
 
     <div>
     <span>
-    <img src="/used-car.jpeg" alt="" />
+    <img src="/used-car.jpeg" loading='lazy' alt="" />
     <b>TinCar</b>
     <h4>Which Used Cars are the Best Value?</h4>
     <p>With TinCar you can compare models acorss multiple makes and in the same segment enabling you to find great details and see which cars are furthur along in their depreciation curve. Used car shoppers often need low prices and we're here to deliver. How about those shiny used exotics and sports cars? You'll find great information on those too!</p>
     </span>
 
     <span>
-    <img src="/reliable.jpg" alt="" />
+    <img src="/reliable.jpg" loading='lazy' alt="" />
     <b>TinCar</b>
     <h4>Which Cars are the most reliable?</h4>
     <p>Find reliable used cars that dont even need a warranty. Cars that will go 500,000 miles before even needing an oil change. Cars so reliable that you can find someone in your neighborhood with that same car and a million miles on the odometer. **hint** just buy a toyota, any toyota.</p>
     </span>
 
     <span>
-    <img src="/car-news.JPG" alt="" />
+    <img src="/car-news.JPG" loading='lazy' alt="" />
     <b style={{color: "#ff4c68"}}>SPONSORED CONTENT</b>
     <h4>Kia Car News</h4>
     <p>Find reliable used cars that dont even need a warranty. Cars that will go 500,000 miles before even needing an oil change. Cars so reliable that you can find someone in your neighborhood with that same car and a million miles on the odometer. **hint** just buy a toyota, any toyota.</p>
@@ -1089,7 +1089,7 @@ function showLoginModal() {
         <h4>Best Trucks</h4>
       </div>
       <div className='ad-container'>
-        <img src="/4runner-ad.jpg" alt="" />
+        <img src="/4runner-ad.jpg" loading='lazy' alt="" />
         <div className='ad-info'>
           <h6>Ad</h6>
           <h4>2013 Toyota 4Runner</h4>
@@ -1115,7 +1115,7 @@ function showLoginModal() {
     <div className='model'>
     <h4>2013 Porsche 911 Carrera 4S</h4>
    
-    <img src="/porche-car.jpg" alt="" />
+    <img src="/porche-car.jpg"  alt="" />
     <span>
     <p>400 HP from a 3.6L I6</p>
     <p>Market Value: $54,000</p>
@@ -1155,19 +1155,19 @@ function showLoginModal() {
       <h1>Latest Car News From Our Experts</h1>
       <div className='news-widget-grid'>
         <div className='news-widget-card' onClick={() => navigate('/blog')}>
-          <img src="/used-car-prices.jpg" alt="" />
+          <img src="/used-car-prices.jpg" loading='lazy' alt="" />
           <h3 style={{fontSize: '1.4rem'}}>2023 Q4: Used Car Market Becoming Normal Again?</h3>
         </div>
         <div className='news-widget-card' onClick={() => navigate('/blog')}>
-        <img src="/money-saved.jpg" alt="" />
+        <img src="/money-saved.jpg" alt=""  loading='lazy'/>
           <h3>New Study Shows How Much Used Car Buyers Save</h3>
         </div>
         <div className='news-widget-card' onClick={() => navigate('/blog')}>
-        <img src="/usedbmw-mercedes.jpg" alt="" />
+        <img src="/usedbmw-mercedes.jpg" alt="" loading='lazy' />
           <h3>Which Is More Reliable? Used BMWs or Used Mercedes?</h3>
         </div>
         <div className='news-widget-card' onClick={() => navigate('/blog')}>
-        <img src="/boxter.jpg" alt="" />
+        <img src="/boxter.jpg" alt="" loading='lazy'/>
           <h3>Car Care Secrets: How this 40 year old from Kentucky Daily Drives a Porsche Boxer</h3>
         </div>
       </div>

@@ -4,10 +4,10 @@ import cors from "cors";
 import "dotenv/config";
 import path from "path";
 import { fileURLToPath } from "url";
-import { router } from "routes/users.js";
+import { router } from "./routes/users";
 mongoose.set("strictQuery", false);
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 5173;
 
 const app = express();
 require("dotenv").config();

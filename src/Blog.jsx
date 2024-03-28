@@ -15,7 +15,7 @@ function Blog () {
   const noMatches = useRef()
 
   useEffect(() => {
-    fetch(`https://tincar.onrender.com/auth/getPosts`, {
+    fetch(`http://localhost:5173/auth/getPosts`, {
       headers: {'Content-Type': 'application/json'},
       }).then(res => {
       if (res.ok) return res.json()
@@ -148,14 +148,14 @@ function Blog () {
     <>
     <Header/>
     <section id="blog-intro">
-    <img src="/blog-img.jpg"></img>
+    <img src="/blog-img.jpg" loading='lazy'></img>
     <h2>Blog</h2>
     </section>
     <section id="page-split">
     <div id="blog-posts" ref={blogPosts}>
     {
       posts.map((post) => <div>
-        <img src={post.image}></img>
+        <img src={post.image} loading='lazy'></img>
         <p>By {post.author} | {post.date} | {post.category}</p>
         <h3>{post.title}</h3>
         <p>{post.description}</p>
@@ -186,7 +186,7 @@ function Blog () {
     <div className='category-line'></div>
     {
       orderedPosts.map((post, index) => index < 5 ?<div className='recent-post'>
-        <img src={post.image}></img>
+        <img src={post.image} loading='lazy'></img>
         <div>
           <p>{post.date}</p>
           <h4>{post.title}</h4>
@@ -201,7 +201,7 @@ function Blog () {
       <h3>34%</h3>
       <p>Flat Discount</p>
     </div>
-    <img src="whowearecar.png"></img>
+    <img src="whowearecar.png" loading='lazy'></img>
     </div>
 
     </div>
