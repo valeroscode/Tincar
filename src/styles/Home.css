@@ -1039,6 +1039,8 @@ color: #ff4c68;
 
 #account {
   display: flex;
+  position: absolute;
+  right: 3rem;
 }
 
 #account button {

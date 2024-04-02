@@ -16,7 +16,7 @@ function Finder() {
   const navigate = useNavigate()
 
   const [cookies] = useCookies(["access_token"])
-
+  const carModelData = useRef()
     const lottie = useRef()
     const sorry = useRef()
     const searchRes = useRef()
@@ -672,7 +672,14 @@ function Finder() {
        ,sold_in_us_id:                 "cq-sold-in-us"
     }); 
     carquery.initSearchInterface(searchArgs);
-    $('#cq-search-btn').click( function(){ carquery.search(); } );
+    $('#cq-search-btn').click( function(){ carquery.search(); }
+     );
+
+$('#cq-show-data').click(function(){ 
+  
+  carquery.populateCarData('car-model-data');
+  carModelData.current.style.display = 'flex'
+} );
 
     }, [])
 
@@ -752,7 +759,7 @@ const saving = {
       }
     },
     saveToDataBase: async function(car_name, drive, engine, trans, body, price) {
-      fetch(`http://localhost:5173/auth/updateCars/${localStorage.getItem('userID')}`, {
+      fetch(`https://tincar-c64x.onrender.com/auth/updateCars/${localStorage.getItem('userID')}`, {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({
@@ -775,12 +782,6 @@ const saving = {
       })
     },
 }
-
-const carModelData = useRef()
-$('#cq-show-data').click(function(){ 
-  carquery.populateCarData('car-model-data');
-  carModelData.current.style.display = 'flex'
-} );
 
 function hideCarSpecs(e) {
   const sideBar = document.getElementById('car-model-data');

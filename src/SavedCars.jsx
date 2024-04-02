@@ -17,7 +17,7 @@ function SavedCars() {
     useEffect(() => {
     
       async function getCars() { 
-      fetch(`http://localhost:5173/auth/getCars/${localStorage.getItem('userID')}`, {
+      fetch(`https://tincar-c64x.onrender.com/auth/getCars/${localStorage.getItem('userID')}`, {
         method: 'GET',
         headers: {'Content-Type': 'application/json'},
       }).then(res => {

@@ -60,7 +60,7 @@ function Login () {
 
   function handleSignUp() {
     if (regName.current.value !== '' && regUsername.current.value !== '' && regPassword.current.value !== '') {
-    fetch(`http://localhost:5173/auth/register`, {
+    fetch(`https://tincar-c64x.onrender.com/auth/register`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
